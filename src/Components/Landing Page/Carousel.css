@@ -1,0 +1,106 @@
+.first-container {
+  /* background-color: #8ec5fc;
+  background-image: linear-gradient(#ecffd7 0%, #00537d 100%); */
+  background-image: url("../../Imgs/Live-Wave-Background.svg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+.first-container-main {
+  position: relative;
+  text-align: center;
+}
+.first-container-text-header {
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+  font-weight: bolder;
+  font-size: 50px;
+}
+.first-container-text-main {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.first-container-img {
+  border-radius: 1rem;
+  height: 200px;
+  margin: 2rem;
+}
+.third-container-img {
+  border-radius: 1rem;
+  margin: 2rem;
+}
+.third-container-img img {
+  height: 200px;
+  margin: 1rem;
+}
+
+.second-container {
+  /* background-color: #8ec5fc;
+  background-image: linear-gradient(#ecffd7 0%, #00537d 100%); */
+  background-image: url("../../Imgs/Live-Wave-Background.svg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+/* .curve {
+  position: absolute;
+  height: 250px;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+.curve::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  transform: translate(85%, 60%);
+  background-color: hsl(216, 21%, 16%);
+}
+
+.curve::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  background-color: #3c31dd;
+  transform: translate(-4%, 40%);
+  z-index: -1;
+} */
+
+@media (min-width: 0px) and (max-width: 576pc) {
+  .third-container-img {
+    display: flex;
+  }
+  .third-container-img img {
+    height: 150px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up)  */
+@media (min-width: 576px) and (max-width: 768px) {
+}
+/* Medium devices (tablets, 768px and up)  */
+@media (min-width: 768px) and (max-width: 992px) {
+}
+/* Large devices (desktops, 992px and up)  */
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* ... */
+}
+/* Extra large devices (large desktops, 1200px and up)  */
+@media (min-width: 1200px) {
+  /* ... */
+}

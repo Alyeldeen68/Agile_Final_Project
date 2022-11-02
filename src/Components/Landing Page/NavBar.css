@@ -1,0 +1,23 @@
+.main-navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo {
+  height: 40px;
+  margin: 0.5rem 0rem 1rem 1rem;
+}
+.navbar-links-container {
+  position: absolute;
+  right: 0;
+}
+
+.navbar-links {
+  margin-right: 10px;
+}
+
+.me-auto p {
+  color: grey;
+}

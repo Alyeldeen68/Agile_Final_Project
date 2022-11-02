@@ -1,0 +1,133 @@
+.main-dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(178, 174, 242);
+  background: linear-gradient(
+    90deg,
+    rgba(178, 174, 242, 1) 0%,
+    rgba(0, 168, 255, 1) 33%,
+    rgba(7, 82, 128, 1) 100%
+  );
+  color: white;
+}
+.side-bar-container {
+  flex: 1;
+  align-self: flex-start;
+  font-family: "IBM Plex Sans", sans-serif;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+.side-bar {
+  width: 20rem;
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 8px 32px rgba(31, 38, 135, 0.37);
+  border-radius: 1rem 1rem 1rem 1rem;
+  backdrop-filter: blur(5.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.side-bar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.side-bar-header-icon {
+  margin: 0.5rem;
+  display: flex;
+}
+.side-bar-header img {
+  border-radius: 50%;
+  width: 100px;
+  align-self: center;
+}
+.group-heading {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  gap: 5px;
+}
+.group-heading-icon {
+  align-self: flex-start;
+  margin-top: 3px;
+}
+.groups {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 1rem;
+
+  padding: 2px;
+  margin: 2px;
+}
+.group-text {
+  padding: 2px;
+}
+.main {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+}
+
+.main-card {
+  color: black;
+}
+@media (max-width: 576px) {
+  .side-bar-header-icon {
+    display: none;
+  }
+  .side-bar {
+    width: 4rem;
+  }
+  .side-bar-header {
+    align-self: flex-start;
+    margin-top: 2rem;
+    width: 4rem;
+  }
+  .side-bar-header img {
+    width: 50px;
+  }
+}
+/* Small devices (landscape phones, 576px and up)  */
+@media (min-width: 576px) and (max-width: 768px) {
+  /* ... */
+}
+/* Medium devices (tablets, 768px and up)  */
+@media (min-width: 768px) and (max-width: 992px) {
+  /* ... */
+}
+/* Large devices (desktops, 992px and up)  */
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* ... */
+}
+/* Extra large devices (large desktops, 1200px and up)  */
+@media (min-width: 1200px) {
+  /* ... */
+}

@@ -1,0 +1,11 @@
+.main-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+.icon {
+  margin-right: 2px;
+}

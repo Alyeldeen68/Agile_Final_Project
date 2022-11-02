@@ -1,0 +1,129 @@
+.main-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.card-img {
+  height: 250px;
+  padding: 0.5rem;
+}
+
+.card-container {
+  margin: 1rem;
+}
+
+.card-button {
+  display: flex;
+  justify-content: center;
+}
+
+.heading-container {
+  display: flex;
+  justify-content: center;
+}
+.heading-container h2 {
+  font-family: "Times New Roman", Times, serif;
+}
+.sponser-card-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+.sponsor-card {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  border-radius: 1rem;
+}
+
+.logo img {
+  width: 500px;
+  height: 200px;
+}
+.main-text {
+  padding: 1rem;
+}
+
+.main-text-text {
+  width: 70%;
+  word-wrap: break-word;
+}
+
+@media (max-width: 576px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .logo img {
+    width: 200px;
+    height: 150px;
+  }
+  .sponser-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    max-width: 500px;
+  }
+
+  .main-text {
+    display: none;
+  }
+}
+/* Small devices (landscape phones, 576px and up)  */
+@media (min-width: 576px) and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .logo img {
+    width: 200px;
+    height: 150px;
+  }
+  .sponser-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    max-width: 500px;
+  }
+
+  .main-text {
+    display: none;
+  }
+}
+/* Medium devices (tablets, 768px and up)  */
+@media (min-width: 768px) and (max-width: 992px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .logo img {
+    width: 200px;
+    height: 150px;
+  }
+  .sponser-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    max-width: 500px;
+  }
+
+  .main-text {
+    display: none;
+  }
+}
+/* Large devices (desktops, 992px and up)  */
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* ... */
+}
+/* Extra large devices (large desktops, 1200px and up)  */
+@media (min-width: 1200px) {
+  /* ... */
+}
