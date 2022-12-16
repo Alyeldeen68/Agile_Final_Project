@@ -20,12 +20,11 @@ const Login = () => {
         password: password,
       })
       .then((response) => {
-        setRes(response);
-        handleResponse();
+        handleResponse(response);
       })
       .catch((err) => console.log(err));
   };
-  const handleResponse = () => {
+  const handleResponse = (res) => {
     res.data == "Invalid user credentials!"
       ? alert("Wrong email or passoword")
       : navigate("/home-page");
