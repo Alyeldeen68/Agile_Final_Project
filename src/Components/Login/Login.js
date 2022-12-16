@@ -25,7 +25,7 @@ const Login = () => {
       .catch((err) => console.log(err));
   };
   const handleResponse = (res) => {
-    res.data == "Invalid user credentials!"
+    res == "Invalid user credentials!"
       ? alert("Wrong email or passoword")
       : navigate("/home-page");
   };
