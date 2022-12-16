@@ -12,15 +12,15 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = async () => {
-    alert("Hello");
-    await axios
+  const handleSubmit = () => {
+    axios
       .post("https://dawi.onrender.com/login", {
         email: email,
         password: password,
       })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
+    navigate("/home-page");
   };
   return (
     <div className="main-login">
