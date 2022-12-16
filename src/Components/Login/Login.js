@@ -13,8 +13,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [res, setRes] = useState;
-  const handleSubmit = () => {
-    axios
+  const handleSubmit = async () => {
+    await axios
       .post("https://dawi.onrender.com/login", {
         email: email,
         password: password,
