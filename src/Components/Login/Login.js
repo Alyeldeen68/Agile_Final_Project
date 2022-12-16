@@ -27,6 +27,7 @@ const Login = () => {
       })
       .catch((err) => console.log(err));
   };
+
   const handleResponse = () => {
     res.data == "Invalid user credentials!"
       ? alert("Wrong email or passoword")
