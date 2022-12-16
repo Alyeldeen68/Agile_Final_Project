@@ -7,12 +7,14 @@ import leftButton from "../../Imgs/turn-left.png";
 import { RouterLink } from "../../upYouGo/Styling";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { useDispatch } from "react-redux";
+import { setCredintials } from "../../Redux/loginReducer";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [res, setRes] = useState();
+  const dispatch = useDispatch();
   const handleSubmit = () => {
     axios
       .post("https://dawi.onrender.com/login", {
@@ -28,7 +30,7 @@ const Login = () => {
   const handleResponse = () => {
     res.data == "Invalid user credentials!"
       ? alert("Wrong email or passoword")
-      : navigate("/home-page");
+      : dispatch(setCredintials(res.data));
   };
   return (
     <div className="main-login">
