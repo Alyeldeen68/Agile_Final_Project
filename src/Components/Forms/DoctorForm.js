@@ -27,27 +27,27 @@ const DoctorForm = () => {
   const dispatch = useDispatch();
   const type = useSelector((state) => state.signUp.isDoctor);
   const role = type == true ? "Doctor" : "Pharmacist";
-  const handlePhoto = async (e) => {
-    const file = e.target.files[0];
-    var base = await convertBase64(file);
-    base = base.split(",")[1];
-    console.log(base);
-    setBase64(base);
-  };
-  const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      if (file) {
-        fileReader.readAsDataURL(file);
-      }
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
+  // const handlePhoto = async (e) => {
+  //   const file = e.target.files[0];
+  //   var base = await convertBase64(file);
+  //   base = base.split(",")[1];
+  //   console.log(base);
+  //   setBase64(base);
+  // };
+  // const convertBase64 = (file) => {
+  //   return new Promise((resolve, reject) => {
+  //     const fileReader = new FileReader();
+  //     if (file) {
+  //       fileReader.readAsDataURL(file);
+  //     }
+  //     fileReader.onload = () => {
+  //       resolve(fileReader.result);
+  //     };
+  //     fileReader.onerror = (error) => {
+  //       reject(error);
+  //     };
+  //   });
+  // };
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -129,15 +129,6 @@ const DoctorForm = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicName">
-            <Form.Label>Upload your photo</Form.Label>
-            <Form.Control
-              required
-              onChange={handlePhoto}
-              type="file"
-              placeholder="Last Name"
-            />
-          </Form.Group>
           <Button onClick={handleSubmit} variant="primary">
             Submit
           </Button>
