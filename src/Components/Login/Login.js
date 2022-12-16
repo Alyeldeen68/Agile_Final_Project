@@ -18,9 +18,12 @@ const Login = () => {
         email: email,
         password: password,
       })
-      .then((response) => console.log(response))
+      .then((response) => handleResponse(response))
       .catch((err) => console.log(err));
     navigate("/home-page");
+  };
+  const handleResponse = (res) => {
+    console.log(res.data);
   };
   return (
     <div className="main-login">
