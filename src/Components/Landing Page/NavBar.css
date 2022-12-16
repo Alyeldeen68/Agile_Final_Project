@@ -21,3 +21,26 @@
 .me-auto p {
   color: grey;
 }
+
+.login-link {
+  display: inline-block;
+  position: relative;
+}
+
+.login-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.login-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

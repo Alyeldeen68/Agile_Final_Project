@@ -20,12 +20,12 @@
   top: 0;
   left: 0;
   padding-left: 1rem;
-  margin-top: 1rem;
+  margin-top: 7rem;
 }
 .side-bar {
   width: 20rem;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
   padding: 5px;
@@ -46,6 +46,7 @@
 .side-bar-header-icon {
   margin: 0.5rem;
   display: flex;
+  border-radius: 30%;
 }
 .side-bar-header img {
   border-radius: 50%;

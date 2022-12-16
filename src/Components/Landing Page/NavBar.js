@@ -20,7 +20,7 @@ const NavBar = () => {
             <Navbar.Collapse className="navbar-links" id="basic-navbar-nav">
               <Nav className="me-auto  ">
                 <RouterLink to="/login">
-                  <p>Login </p>
+                  <p className="login-link">Login </p>
                 </RouterLink>
                 <Nav.Link href="#link"></Nav.Link>
               </Nav>

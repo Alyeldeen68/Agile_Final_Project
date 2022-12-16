@@ -89,6 +89,7 @@ const HomePage = () => {
               scale: 1.2,
               rotate: 180,
               backgroundColor: "rgba(255,255,255,0.3)",
+              borderRadius: "30%",
               backdropFilter: "blur(3.5px)",
               webkitBackdropFilter: "blur(3.5px)",
               border: "1px solid rgba(255,255,255,0.18)",
@@ -169,7 +170,7 @@ const HomePage = () => {
         animate={`${open}`}
         className="main"
       >
-        <h2>Hola</h2>
+        <h2>Dashboard</h2>
         <div className="card-container">
           <Card className="main-card" style={{ width: "18rem" }}>
             <Card.Img
