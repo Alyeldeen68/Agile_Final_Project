@@ -57,7 +57,7 @@ const DoctorForm = () => {
 
     setValidated(true);
     await axios
-      .post("https://e7gezli.herokuapp.com/registration", {
+      .post("https://dawi.onrender.com/registration", {
         firstName: firstName,
         lastName: lastName,
         email: email,
