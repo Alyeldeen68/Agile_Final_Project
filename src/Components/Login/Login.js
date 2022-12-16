@@ -12,21 +12,24 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [res, setRes] = useState("");
+  const [res, setRes] = useState;
   const handleSubmit = () => {
     axios
       .post("https://dawi.onrender.com/login", {
         email: email,
         password: password,
       })
-      .then((response) => setRes(response))
+      .then((response) => {
+        setRes(response);
+        handleResponse();
+      })
       .catch((err) => console.log(err));
-    console.log(res);
+  };
+  const handleResponse = () => {
     res.data == "Invalid user credentials!"
       ? alert("Wrong email or passoword")
       : navigate("/home-page");
   };
-
   return (
     <div className="main-login">
       <div className="login-container">
