@@ -10,24 +10,25 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setCredintials } from "../../Redux/loginReducer";
 const Login = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [res, setRes] = useState();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSubmit = () => {
-    axios
-      .post("https://dawi.onrender.com/login", {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        console.log(response);
-        console.log("");
-        setRes(response);
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+    navigate("/home-page");
+    // axios
+    //   .post("https://dawi.onrender.com/login", {
+    //     email: email,
+    //     password: password,
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+    //     console.log("");
+    //     setRes(response);
+    //     console.log(res);
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   // const handleResponse = () => {
