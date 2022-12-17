@@ -22,10 +22,12 @@ const Login = () => {
         password: password,
       })
       .then((response) => {
-        console.log(response.data);
-        console.log("");
-        setRes(response);
-        console.log(res);
+        if (response.data == "Invalid user credentials!") {
+          alert("Invalid user name or password");
+        } else {
+          dispatch(setCredintials(response.data));
+          navigate("/home-page");
+        }
       })
       .catch((err) => console.log(err));
   };
