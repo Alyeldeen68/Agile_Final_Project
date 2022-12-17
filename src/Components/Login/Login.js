@@ -22,7 +22,7 @@ const Login = () => {
         password: password,
       })
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
         console.log("");
         setRes(response);
         console.log(res);
