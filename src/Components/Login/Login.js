@@ -22,17 +22,19 @@ const Login = () => {
         password: password,
       })
       .then((response) => {
+        console.log(response);
+        console.log("");
         setRes(response);
-        handleResponse();
+        console.log(res);
       })
       .catch((err) => console.log(err));
   };
 
-  const handleResponse = () => {
-    res.data == "Invalid user credentials!"
-      ? alert("Wrong email or passoword")
-      : dispatch(setCredintials(res.data));
-  };
+  // const handleResponse = () => {
+  //   res.data == "Invalid user credentials!"
+  //     ? alert("Wrong email or passoword")
+  //     : dispatch(setCredintials(res.data));
+  // };
   return (
     <div className="main-login">
       <div className="login-container">
