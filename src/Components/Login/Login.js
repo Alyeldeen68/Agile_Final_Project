@@ -16,19 +16,18 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSubmit = () => {
-    navigate("/home-page");
-    // axios
-    //   .post("https://dawi.onrender.com/login", {
-    //     email: email,
-    //     password: password,
-    //   })
-    //   .then((response) => {
-    //     console.log(response);
-    //     console.log("");
-    //     setRes(response);
-    //     console.log(res);
-    //   })
-    //   .catch((err) => console.log(err));
+    axios
+      .post("https://dawi.onrender.com/login", {
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        console.log(response);
+        console.log("");
+        setRes(response);
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   };
 
   // const handleResponse = () => {
