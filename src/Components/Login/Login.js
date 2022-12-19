@@ -24,6 +24,7 @@ const Login = () => {
       .then((response) => {
         if (response.data == "Invalid user credentials!") {
           alert("Invalid user name or password");
+          console.log(response.data);
         } else {
           dispatch(setCredintials(response.data));
           navigate("/home-page");

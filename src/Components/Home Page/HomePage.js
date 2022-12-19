@@ -72,6 +72,7 @@ const HomePage = () => {
   const handleToggle = () => {
     setOpen(!open);
   };
+
   const isLogged = useSelector((state) => state.login.isLoggedIn);
   return (
     <>
