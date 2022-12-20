@@ -82,16 +82,20 @@ const HomePage = () => {
   accessToken = `'${accessToken}'`;
   const header = {
     Authorization: accessToken,
+    "content-type": "text/json",
   };
   const role = isDoctor ? "Doctor" : "Pharmacist";
 
   useEffect(() => {
     console.log(accessToken);
     axios
-      .post("https://dawi.onrender.com/get-medicines", {
-        header,
-        "content-type": "text/json",
-      })
+      .post(
+        "https://dawi.onrender.com/get-medicines",
+        {},
+        {
+          header,
+        }
+      )
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
   }, []);
