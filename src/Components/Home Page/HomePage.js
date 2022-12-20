@@ -76,8 +76,7 @@ const HomePage = () => {
   };
 
   const [showModal, setShowModal] = useState(true);
-  //useSelector((state) => state.login.isLoggedIn);
-  const isLogged = true;
+  const isLogged = useSelector((state) => state.login.isLoggedIn);
   return (
     <>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
