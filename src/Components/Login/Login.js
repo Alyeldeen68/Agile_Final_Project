@@ -30,6 +30,8 @@ const Login = () => {
           setShowModal(true);
         } else {
           dispatch(setCredintials(response.data));
+          console.log(response);
+          console.log(response.data);
           navigate("/home-page");
         }
       })
