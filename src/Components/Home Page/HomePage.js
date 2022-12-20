@@ -82,6 +82,7 @@ const HomePage = () => {
   const role = isDoctor ? "Doctor" : "Pharmacist";
 
   useEffect(() => {
+    accessToken;
     axios
       .get("https://dawi.onrender.com/get-medicines", {
         headers: {
