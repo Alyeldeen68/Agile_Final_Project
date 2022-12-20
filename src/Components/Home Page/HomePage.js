@@ -90,6 +90,7 @@ const HomePage = () => {
     axios
       .post("https://dawi.onrender.com/get-medicines", {
         header,
+        "content-type": "text/json",
       })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
