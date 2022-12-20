@@ -78,7 +78,7 @@ const HomePage = () => {
   const [showModal, setShowModal] = useState(true);
   const isDoctor = useSelector((state) => state.login.isDoctor);
   const isLogged = useSelector((state) => state.login.isLoggedIn);
-  const accessToken = useSelector((state) => state.login.userName.value);
+  const accessToken = useSelector((state) => state.login.userName);
   const role = isDoctor ? "Doctor" : "Pharmacist";
 
   useEffect(() => {
