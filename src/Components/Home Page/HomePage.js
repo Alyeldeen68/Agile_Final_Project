@@ -10,6 +10,8 @@ import { Dashboard } from "@mui/icons-material";
 import { RouterLink } from "../../upYouGo/Styling";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+
+import Modal from "react-bootstrap/Modal";
 import { useSelect } from "@mui/base";
 import { useSelector } from "react-redux";
 const HomePage = () => {
@@ -73,9 +75,26 @@ const HomePage = () => {
     setOpen(!open);
   };
 
-  const isLogged = useSelector((state) => state.login.isLoggedIn);
+  const [showModal, setShowModal] = useState(true);
+  //useSelector((state) => state.login.isLoggedIn);
+  const isLogged = true;
   return (
     <>
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title style={{ color: "#008000" }}>Successful</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Logged in sucessfuly </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            style={{ backgroundColor: "#008000" }}
+            onClick={() => setShowModal(false)}
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
       {isLogged && (
         <div className="main-dashboard">
           <motion.div
