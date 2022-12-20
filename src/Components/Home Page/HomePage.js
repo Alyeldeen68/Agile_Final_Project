@@ -79,7 +79,6 @@ const HomePage = () => {
   const isDoctor = useSelector((state) => state.login.isDoctor);
   const isLogged = useSelector((state) => state.login.isLoggedIn);
   var accessToken = useSelector((state) => state.login.userName.accessToken);
-  accessToken = `'${accessToken}'`;
   const header = {
     Authorization: accessToken,
     "content-type": "text/json",
