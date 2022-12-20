@@ -97,6 +97,9 @@
   gap: 15px;
   width: 100%;
 }
+h2 {
+  margin-bottom: 1rem;
+}
 
 .main-card {
   color: black;

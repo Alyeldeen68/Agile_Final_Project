@@ -17,8 +17,10 @@ const loginSlice = createSlice({
       state.isLoggedIn = true;
       if (action.payload.role == "Doctor") {
         state.isDoctor = true;
+        state.isPharmacist = false;
       } else {
         state.isPharmacist = true;
+        state.isDoctor = false;
       }
     },
   },

@@ -14,6 +14,7 @@ import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import { useSelect } from "@mui/base";
 import { useSelector } from "react-redux";
+import axios from "axios";
 const HomePage = () => {
   const [open, setOpen] = useState(window.innerWidth > 600 ? true : false);
   const sideContainerVariable = {
@@ -77,7 +78,19 @@ const HomePage = () => {
   const [showModal, setShowModal] = useState(true);
   const isDoctor = useSelector((state) => state.login.isDoctor);
   const isLogged = useSelector((state) => state.login.isLoggedIn);
+  const accessToken = useSelector((state) => state.login.userName.value);
   const role = isDoctor ? "Doctor" : "Pharmacist";
+
+  useEffect(() => {
+    axios
+      .get("https://dawi.onrender.com/get-medicines", {
+        headers: {
+          Authorization: accessToken,
+        },
+      })
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
