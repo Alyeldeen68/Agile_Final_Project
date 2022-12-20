@@ -79,16 +79,17 @@ const HomePage = () => {
   const isDoctor = useSelector((state) => state.login.isDoctor);
   const isLogged = useSelector((state) => state.login.isLoggedIn);
   var accessToken = useSelector((state) => state.login.userName.accessToken);
-  accessToken = `"${accessToken}"`;
+  accessToken = `'${accessToken}'`;
+  const header = {
+    Authorization: accessToken,
+  };
   const role = isDoctor ? "Doctor" : "Pharmacist";
 
   useEffect(() => {
     console.log(accessToken);
     axios
       .post("https://dawi.onrender.com/get-medicines", {
-        headers: {
-          Authorization: accessToken,
-        },
+        header,
       })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
