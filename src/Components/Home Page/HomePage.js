@@ -75,7 +75,9 @@ const HomePage = () => {
     setOpen(!open);
   };
   const [showModal, setShowModal] = useState(true);
+  const isDoctor = useSelector((state) => state.login.isDoctor);
   const isLogged = useSelector((state) => state.login.isLoggedIn);
+  const role = isDoctor ? "Doctor" : "Pharmacist";
   return (
     <>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -199,7 +201,7 @@ const HomePage = () => {
             animate={`${open}`}
             className="main"
           >
-            <h2>Dashboard</h2>
+            <h2>Hello, {role} </h2>
             <div className="card-container">
               <Card className="main-card" style={{ width: "18rem" }}>
                 <Card.Img
