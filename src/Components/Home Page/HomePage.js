@@ -74,7 +74,6 @@ const HomePage = () => {
   const handleToggle = () => {
     setOpen(!open);
   };
-
   const [showModal, setShowModal] = useState(true);
   const isLogged = useSelector((state) => state.login.isLoggedIn);
   return (
