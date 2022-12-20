@@ -80,7 +80,7 @@ const HomePage = () => {
   const isLogged = useSelector((state) => state.login.isLoggedIn);
   var accessToken = useSelector((state) => state.login.userName.accessToken);
   const header = {
-    Authorization: accessToken,
+    authorization: accessToken,
     "content-type": "text/json",
   };
   const role = isDoctor ? "Doctor" : "Pharmacist";
