@@ -84,7 +84,7 @@ const HomePage = () => {
   useEffect(() => {
     console.log(accessToken);
     axios
-      .get("https://dawi.onrender.com/get-medicines", {
+      .post("https://dawi.onrender.com/get-medicines", {
         headers: {
           Authorization: accessToken,
         },
