@@ -10,7 +10,7 @@ import { Dashboard } from "@mui/icons-material";
 import { RouterLink } from "../../upYouGo/Styling";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-
+import { userData } from "../../Redux/userReducer";
 import Modal from "react-bootstrap/Modal";
 import { useSelect } from "@mui/base";
 import { useDispatch, useSelector } from "react-redux";
@@ -84,7 +84,7 @@ const HomePage = () => {
     "content-type": "text/json",
   };
   const role = isDoctor ? "Doctor" : "Pharmacist";
-  const userData = useSelector((state) => state.user.data);
+  const userdata = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
   useEffect(() => {
     console.log(accessToken);
@@ -103,7 +103,7 @@ const HomePage = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(userData);
+  console.log(userdata);
   return (
     <>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
