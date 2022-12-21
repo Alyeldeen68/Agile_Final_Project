@@ -230,9 +230,9 @@ const HomePage = () => {
           >
             <h2>Hello, {role} </h2>
             <div className="card-container">
-              {userdata.map((item) => (
-                <CardContainer img={item.img} title={item.name} />
-              ))}
+              {userdata.map((item) =>
+                item.map((i) => <CardContainer img={i.img} title={i.name} />)
+              )}
             </div>
           </motion.div>
         </div>
