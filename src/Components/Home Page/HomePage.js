@@ -13,7 +13,7 @@ import Card from "react-bootstrap/Card";
 
 import Modal from "react-bootstrap/Modal";
 import { useSelect } from "@mui/base";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 const HomePage = () => {
   const [open, setOpen] = useState(window.innerWidth > 600 ? true : false);
@@ -84,7 +84,8 @@ const HomePage = () => {
     "content-type": "text/json",
   };
   const role = isDoctor ? "Doctor" : "Pharmacist";
-
+  const userData = useSelector((state) => state.user.data);
+  const dispatch = useDispatch();
   useEffect(() => {
     console.log(accessToken);
     axios
@@ -95,9 +96,11 @@ const HomePage = () => {
           headers: header,
         }
       )
-      .then((response) => console.log(response))
+      .then((response) => dispatch(userData(response.data)))
       .catch((err) => console.log(err));
   }, []);
+
+  console.log(userData);
   return (
     <>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
