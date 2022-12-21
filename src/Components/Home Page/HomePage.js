@@ -96,7 +96,10 @@ const HomePage = () => {
           headers: header,
         }
       )
-      .then((response) => dispatch(userData(response.data)))
+      .then((response) => {
+        console.log(response.data);
+        dispatch(userData(response.data));
+      })
       .catch((err) => console.log(err));
   }, []);
 
