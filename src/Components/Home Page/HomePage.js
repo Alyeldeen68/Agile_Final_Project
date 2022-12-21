@@ -15,6 +15,7 @@ import Modal from "react-bootstrap/Modal";
 import { useSelect } from "@mui/base";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import CardContainer from "./CardContainer";
 const HomePage = () => {
   const [open, setOpen] = useState(window.innerWidth > 600 ? true : false);
   const sideContainerVariable = {
@@ -229,104 +230,9 @@ const HomePage = () => {
           >
             <h2>Hello, {role} </h2>
             <div className="card-container">
-              <Card className="main-card" style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
-                />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-              <Card className="main-card" style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
-                />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-              <Card className="main-card" style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
-                />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-              <Card className="main-card" style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
-                />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-              <Card className="main-card" style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
-                />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-              <Card className="main-card" style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
-                />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-              <Card className="main-card" style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
-                />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
+              {userdata[0].map((item) => (
+                <CardContainer img={item.img} title={item.name} />
+              ))}
             </div>
           </motion.div>
         </div>
