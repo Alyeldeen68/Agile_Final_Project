@@ -116,7 +116,9 @@ const HomePage = () => {
           expiryDate: "2000-24-12",
         },
         {
-          headers: header,
+          headers: {
+            authorization: accessToken,
+          },
         }
       )
       .then((response) => console.log(response))
