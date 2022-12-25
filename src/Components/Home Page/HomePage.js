@@ -108,21 +108,23 @@ const HomePage = () => {
 
   const handleAddItem = () => {
     alert("Hello");
-    axios
-      .post(
-        "https://dawi.onrender.com/add-medicine",
-        {
-          name: "Aly",
-          expiryDate: "2000-24-12",
-        },
-        {
-          headers: {
-            authorization: accessToken,
-          },
-        }
-      )
+
+    axios({
+      method: "post",
+      url: "https://dawi.onrender.com/add-medicine",
+      timeout: 3000,
+      headers: {
+        authorization: accessToken,
+        "content-type": "text/json",
+      },
+      data: {
+        name: "Aly",
+        expiryDate: "2000-12-24",
+      },
+    })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
+
     setTimeout(() => {}, 1000);
     console.log("Hello koko");
     axios
