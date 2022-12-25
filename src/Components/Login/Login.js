@@ -16,10 +16,12 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [res, setRes] = useState();
   const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
+    setIsLoading(true);
     axios
       .post("https://dawi.onrender.com/login", {
         email: email,
@@ -28,12 +30,17 @@ const Login = () => {
       .then((response) => {
         if (response.data == "Invalid user credentials!") {
           setShowModal(true);
+          setIsLoading(false);
         } else {
           dispatch(setCredintials(response.data));
+          setIsLoading(false);
           navigate("/home-page");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setIsLoading(false);
+        console.log(err);
+      });
   };
 
   // const handleResponse = () => {
@@ -86,7 +93,7 @@ const Login = () => {
                 />
               </Form.Group>
               <Button onClick={handleSubmit} variant="primary">
-                Login
+                {isLoading ? <>Loading...</> : <>Login</>}
               </Button>
             </Form>
           </div>
