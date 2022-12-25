@@ -92,9 +92,15 @@ const Login = () => {
                   placeholder="Password"
                 />
               </Form.Group>
-              <Button onClick={handleSubmit} variant="primary">
-                {isLoading ? <>Loading...</> : <>Login</>}
-              </Button>
+              {isLoading ? (
+                <Button onClick={handleSubmit} variant="primary">
+                  Login
+                </Button>
+              ) : (
+                <Button onClick={handleSubmit} variant="primary">
+                  Loading...
+                </Button>
+              )}
             </Form>
           </div>
         </div>
