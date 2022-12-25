@@ -109,18 +109,20 @@ const HomePage = () => {
 
   const handleAddItem = () => {
     alert("Hello");
-    axios.post(
-      "https://dawi.onrender.com/add-medicine",
-      {
-        name: "Aly",
-        expiryDate: "24/12/2000",
-      },
-      {
-        headers: header,
-      }
-        .then((response) => console.log(response))
-        .catch((err) => console.log(err))
-    );
+    axios
+      .post(
+        "https://dawi.onrender.com/add-medicine",
+        {
+          name: "Aly",
+          expiryDate: "24/12/2000",
+        },
+        {
+          headers: header,
+        }
+      )
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+
     axios
       .post(
         "https://dawi.onrender.com/get-medicines",
