@@ -123,6 +123,8 @@ const HomePage = () => {
       )
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
+    setTimeout(() => {}, 1000);
+    console.log("Hello koko");
     axios
       .post(
         "https://dawi.onrender.com/get-medicines",
