@@ -227,11 +227,9 @@ const HomePage = () => {
                     </motion.div>
                   </h3>
                   <Item icon={<Dashboard />} name="Dashboard" />
-                  <Item
-                    icon={<AddIcon />}
-                    onClick={handleAddItem}
-                    name="Add item"
-                  />
+                  <button onClick={handleAddItem}>
+                    <Item icon={<AddIcon />} name="Add item" />
+                  </button>
                   <Item icon={<Dashboard />} name="Dashboard" />
                   <Item icon={<Dashboard />} name="Dashboard" />
                   <div className="group-main">
