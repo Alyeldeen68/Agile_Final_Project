@@ -121,9 +121,6 @@ const HomePage = () => {
       )
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
-    setTimeout(() => {
-      console.log("Delay");
-    }, 3000);
     axios
       .post(
         "https://dawi.onrender.com/get-medicines",
@@ -139,7 +136,6 @@ const HomePage = () => {
       .catch((err) => console.log(err));
   };
 
-  console.log(userdata);
   return (
     <>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
