@@ -112,7 +112,7 @@ const HomePage = () => {
     axios({
       method: "post",
       url: "https://dawi.onrender.com/add-medicine",
-      timeout: 3000,
+      timeout: 100000,
       headers: {
         authorization: accessToken,
         "content-type": "text/json",
