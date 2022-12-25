@@ -114,7 +114,7 @@ const HomePage = () => {
         "https://dawi.onrender.com/add-medicine",
         {
           name: "Aly",
-          expiryDate: "24-12-2000",
+          expiryDate: "2000-24-12",
         },
         {
           headers: header,
