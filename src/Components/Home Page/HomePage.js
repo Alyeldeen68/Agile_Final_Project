@@ -91,7 +91,6 @@ const HomePage = () => {
   const userdata = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(accessToken);
     axios
       .post(
         "https://dawi.onrender.com/get-medicines",
@@ -122,7 +121,9 @@ const HomePage = () => {
       )
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
-
+    setTimeout(() => {
+      console.log("Delay");
+    }, 3000);
     axios
       .post(
         "https://dawi.onrender.com/get-medicines",
