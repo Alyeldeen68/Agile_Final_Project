@@ -6,11 +6,11 @@ import ContactPageIcon from "@mui/icons-material/ContactPage";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
 import Item from "../Home Page/Item.js";
 import { motion } from "framer-motion";
-import { Dashboard } from "@mui/icons-material";
+import { Dashboard, AddIcon } from "@mui/icons-material";
 import { RouterLink } from "../../upYouGo/Styling";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { userData } from "../../Redux/userReducer";
+import { signOut, userData } from "../../Redux/userReducer";
 import Modal from "react-bootstrap/Modal";
 import { useSelect } from "@mui/base";
 import { useDispatch, useSelector } from "react-redux";
@@ -75,6 +75,7 @@ const HomePage = () => {
   };
   const handleToggle = () => {
     setOpen(!open);
+    dispatch(signOut);
   };
   const [showModal, setShowModal] = useState(true);
   const isDoctor = useSelector((state) => state.login.isDoctor);
@@ -84,6 +85,7 @@ const HomePage = () => {
     authorization: accessToken,
     "content-type": "text/json",
   };
+
   const role = isDoctor ? "Doctor" : "Pharmacist";
   const userdata = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
@@ -103,6 +105,35 @@ const HomePage = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const handleAddItem = () => {
+    alert("Hello");
+    axios.post(
+      "https://dawi.onrender.com/add-medicine",
+      {
+        name: "Aly",
+        expiryDate: "24/12/2000",
+      },
+      {
+        headers: header,
+      }
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err))
+    );
+    axios
+      .post(
+        "https://dawi.onrender.com/get-medicines",
+        {},
+        {
+          headers: header,
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+        dispatch(userData(response.data));
+      })
+      .catch((err) => console.log(err));
+  };
 
   console.log(userdata);
   return (
@@ -195,7 +226,11 @@ const HomePage = () => {
                     </motion.div>
                   </h3>
                   <Item icon={<Dashboard />} name="Dashboard" />
-                  <Item icon={<Dashboard />} name="Dashboard" />
+                  <Item
+                    icon={<AddIcon />}
+                    onClick={handleAddItem}
+                    name="Add item"
+                  />
                   <Item icon={<Dashboard />} name="Dashboard" />
                   <Item icon={<Dashboard />} name="Dashboard" />
                   <div className="group-main">

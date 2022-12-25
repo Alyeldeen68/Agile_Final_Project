@@ -13,8 +13,11 @@ const userSlice = createSlice({
       state.data.push(action.payload);
       console.log(state.data);
     },
+    signOut: (state, action) => {
+      state.data = [];
+    },
   },
 });
 
-export const { userData } = userSlice.actions;
+export const { userData, signOut } = userSlice.actions;
 export default userSlice.reducer;
