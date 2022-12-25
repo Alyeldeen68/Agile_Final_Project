@@ -94,11 +94,11 @@ const Login = () => {
               </Form.Group>
               {isLoading ? (
                 <Button onClick={handleSubmit} variant="primary">
-                  Login
+                  Loading...
                 </Button>
               ) : (
                 <Button onClick={handleSubmit} variant="primary">
-                  Loading...
+                  Login
                 </Button>
               )}
             </Form>
