@@ -7,6 +7,7 @@ import MenuSharpIcon from "@mui/icons-material/MenuSharp";
 import Item from "../Home Page/Item.js";
 import { motion } from "framer-motion";
 import { Dashboard } from "@mui/icons-material";
+import Form from "react-bootstrap/Form";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import { RouterLink } from "../../upYouGo/Styling";
@@ -93,7 +94,7 @@ const HomePage = () => {
   const [doctorServices, setDoctorServices] = useState(
     role == "Doctor" ? true : false
   );
-
+  const [showDataModal, setShowDataModal] = useState(false);
   const userdata = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -300,6 +301,36 @@ const HomePage = () => {
           </motion.div>
         </div>
       )}
+
+      {/* Modal*/}
+      <Modal backdrop="static" show={showDataModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="name@example.com"
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Example textarea</Form.Label>
+              <Form.Control as="textarea" rows={3} />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary">Close</Button>
+          <Button variant="primary">Save Changes</Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
