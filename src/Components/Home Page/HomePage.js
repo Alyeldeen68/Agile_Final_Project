@@ -196,10 +196,7 @@ const HomePage = () => {
                 onClick={handleToggle}
                 className="side-bar-header-icon"
               >
-                <button onClick={() => dispatch(signOut())}>
-                  {" "}
-                  <MenuSharpIcon />{" "}
-                </button>
+                <MenuSharpIcon />
               </motion.div>
               <motion.div
                 layout
@@ -221,6 +218,7 @@ const HomePage = () => {
                 <RouterLink to="/">
                   <motion.img
                     variants={imgVariable}
+                    onClick={() => dispatch(signOut())}
                     className="side-bar-header-logo"
                     src="https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg?w=2000"
                   />
