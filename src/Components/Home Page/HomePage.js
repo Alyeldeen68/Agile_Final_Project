@@ -8,6 +8,7 @@ import Item from "../Home Page/Item.js";
 import { motion } from "framer-motion";
 import { Dashboard } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
 import { RouterLink } from "../../upYouGo/Styling";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -17,6 +18,7 @@ import { useSelect } from "@mui/base";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import CardContainer from "./CardContainer";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 const HomePage = () => {
   const [open, setOpen] = useState(window.innerWidth > 600 ? true : false);
   const sideContainerVariable = {
@@ -88,6 +90,10 @@ const HomePage = () => {
   };
 
   const role = isDoctor ? "Doctor" : "Pharmacist";
+  const [doctorServices, setDoctorServices] = useState(
+    role == "Doctor" ? true : false
+  );
+
   const userdata = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -232,11 +238,29 @@ const HomePage = () => {
                     </motion.div>
                   </h3>
                   <Item icon={<Dashboard />} name="Dashboard" />
-                  <button onClick={handleAddItem}>
-                    <Item icon={<AddIcon />} name="Add item" />
-                  </button>
-                  <Item icon={<Dashboard />} name="Dashboard" />
-                  <Item icon={<Dashboard />} name="Dashboard" />
+                  {doctorServices ? (
+                    <button onClick={handleAddItem}>
+                      <Item
+                        icon={<LocalHospitalIcon />}
+                        name="Add reservation"
+                      />
+                    </button>
+                  ) : (
+                    <button onClick={handleAddItem}>
+                      <Item icon={<AddIcon />} name="Add item" />
+                    </button>
+                  )}
+
+                  {doctorServices ? (
+                    <button onClick={handleAddItem}>
+                      <Item icon={<EditIcon />} name="Edit reservation" />
+                    </button>
+                  ) : (
+                    <button>
+                      <Item icon={<EditIcon />} name="Edit item" />
+                    </button>
+                  )}
+
                   <div className="group-main">
                     <h4></h4>
                   </div>
