@@ -4,6 +4,7 @@ import * as FaIcons from "react-icons/fa";
 import BuildIcon from "@mui/icons-material/Build";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import Item from "../Home Page/Item.js";
 import { motion } from "framer-motion";
 import { Dashboard } from "@mui/icons-material";
@@ -19,7 +20,6 @@ import { useSelect } from "@mui/base";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import CardContainer from "./CardContainer";
-import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 const HomePage = () => {
   const [open, setOpen] = useState(window.innerWidth > 600 ? true : false);
   const sideContainerVariable = {
@@ -91,9 +91,7 @@ const HomePage = () => {
   };
 
   const role = isDoctor ? "Doctor" : "Pharmacist";
-  const [doctorServices, setDoctorServices] = useState(
-    role == "Doctor" ? true : false
-  );
+  const [doctorServices, setDoctorServices] = useState(isDoctor ? true : false);
   const [showDataModal, setShowDataModal] = useState(false);
   const userdata = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
@@ -239,6 +237,7 @@ const HomePage = () => {
                     </motion.div>
                   </h3>
                   <Item icon={<Dashboard />} name="Dashboard" />
+
                   {doctorServices ? (
                     <button onClick={handleAddItem}>
                       <Item
