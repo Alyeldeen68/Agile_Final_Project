@@ -89,7 +89,6 @@ const HomePage = () => {
     authorization: accessToken,
     "content-type": "text/json",
   };
-
   const role = isDoctor ? "Doctor" : "Pharmacist";
   const [doctorServices, setDoctorServices] = useState(isDoctor ? true : false);
   const [showDataModal, setShowDataModal] = useState(false);
@@ -197,7 +196,10 @@ const HomePage = () => {
                 onClick={handleToggle}
                 className="side-bar-header-icon"
               >
-                <MenuSharpIcon />
+                <button onClick={() => dispatch(signOut())}>
+                  {" "}
+                  <MenuSharpIcon />{" "}
+                </button>
               </motion.div>
               <motion.div
                 layout
