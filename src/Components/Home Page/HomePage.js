@@ -125,24 +125,27 @@ const HomePage = () => {
   };
   const handleAddItem = () => {
     alert("Hello");
-    // axios
-    //   .post(
-    //     "https://dawi.onrender.com/add-medicine-2",
-    //     {
-    //       name: "Aly",
-    //       expiryDate: "2000-12-24",
-    //     },
-    //     {
-    //       headers: header,
-    //     }
-    //   )
-    //   .then((response) => {
-    //     console.log("Hello");
-    //     console.log(response.data);
-    //     dispatch(userData(response.data));
-    //   })
-    //   .catch((err) => console.log(err));
-
+    axios
+      .post(
+        "https://dawi.onrender.com/add-reservation",
+        {
+          name: "Aly",
+          expiryDate: "2000-12-24",
+        },
+        {
+          headers: {
+            specialty: "Aly",
+            dateAndTime: "2000-12-24",
+          },
+        }
+      )
+      .then((response) => {
+        console.log("Hello");
+        console.log(response.data);
+        dispatch(userData(response.data));
+      })
+      .catch((err) => console.log(err));
+    // *************************Fetch***************************************
     // fetch("/add-reservation", {
     //   method: "POST",
     //   headers: {
@@ -154,21 +157,21 @@ const HomePage = () => {
     //   .then((response) => response.json())
     //   .then((d) => console.log(d))
     //   .catch((err) => console.log(err));
-
-    axios("https://dawi.onrender.com/add-reservation", {
-      method: "post",
-      timeout: 5000,
-      headers: {
-        authorization: accessToken,
-        "content-type": "text/json",
-      },
-      data: {
-        specialty: "Aly",
-        dateAndTime: "2000-12-24",
-      },
-    })
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
+    // *********************************** Axios method 2 **************************************
+    // axios("https://dawi.onrender.com/add-reservation", {
+    //   method: "post",
+    //   timeout: 5000,
+    //   headers: {
+    //     authorization: accessToken,
+    //     "content-type": "text/json",
+    //   },
+    //   data: {
+    //     specialty: "Aly",
+    //     dateAndTime: "2000-12-24",
+    //   },
+    // })
+    //   .then((response) => console.log(response))
+    //   .catch((err) => console.log(err));
 
     setTimeout(() => {}, 1000);
     console.log("Hello koko");
