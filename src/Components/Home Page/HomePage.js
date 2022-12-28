@@ -131,7 +131,7 @@ const HomePage = () => {
     //   .catch((err) => console.log(err));
     axios({
       method: "post",
-      url: "https://dawi.onrender.com/add-medicine",
+      url: "https://dawi.onrender.com/add-medicine-2",
       timeout: 5000,
       headers: {
         authorization: accessToken,
