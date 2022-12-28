@@ -100,9 +100,9 @@ const HomePage = () => {
       body: JSON.stringify(header),
     })
       .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        dispatch(userData(res.data));
+      .then((d) => {
+        console.log(d);
+        dispatch(userData(d.data));
       })
       .catch((err) => console.log(err));
     // axios
@@ -152,7 +152,7 @@ const HomePage = () => {
       body: JSON.stringify(reservationData),
     })
       .then((response) => response.json())
-      .then((response) => console.log(response))
+      .then((d) => console.log(d))
       .catch((err) => console.log(err));
 
     // axios({

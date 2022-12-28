@@ -31,12 +31,12 @@ const Login = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((res) => {
-        if (res.data == "Invalid user credentials!") {
+      .then((d) => {
+        if (d.data == "Invalid user credentials!") {
           setShowModal(true);
           setIsLoading(false);
         } else {
-          dispatch(setCredintials(res.data));
+          dispatch(setCredintials(d.data));
           setIsLoading(false);
           navigate("/home-page");
         }
