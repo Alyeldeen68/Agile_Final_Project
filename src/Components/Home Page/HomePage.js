@@ -131,15 +131,15 @@ const HomePage = () => {
     //   .catch((err) => console.log(err));
     axios({
       method: "post",
-      url: "https://dawi.onrender.com/add-medicine-2",
+      url: "https://dawi.onrender.com/add-reservation",
       timeout: 5000,
       headers: {
         authorization: accessToken,
         "content-type": "text/json",
       },
       data: {
-        name: "Aly",
-        expiryDate: "2000-12-24",
+        specialty: "Aly",
+        dateAndTime: "2000-12-24",
       },
     })
       .then((response) => console.log(response))
