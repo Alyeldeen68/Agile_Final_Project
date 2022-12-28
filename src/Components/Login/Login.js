@@ -19,21 +19,24 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const data = {
+    email: email,
+    password: password,
+  };
   const handleSubmit = () => {
     setIsLoading(true);
 
-    axios
-      .post("/login", {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        if (response.data == "Invalid user credentials!") {
+    fetch("/login", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then(res > res.json())
+      .then((res) => {
+        if (res.data == "Invalid user credentials!") {
           setShowModal(true);
           setIsLoading(false);
         } else {
-          dispatch(setCredintials(response.data));
+          dispatch(setCredintials(res.data));
           setIsLoading(false);
           navigate("/home-page");
         }
@@ -42,6 +45,25 @@ const Login = () => {
         setIsLoading(false);
         console.log(err);
       });
+    // axios
+    //   .post("/login", {
+    //     email: email,
+    //     password: password,
+    //   })
+    //   .then((response) => {
+    //     if (response.data == "Invalid user credentials!") {
+    //       setShowModal(true);
+    //       setIsLoading(false);
+    //     } else {
+    //       dispatch(setCredintials(response.data));
+    //       setIsLoading(false);
+    //       navigate("/home-page");
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     setIsLoading(false);
+    //     console.log(err);
+    //   });
   };
 
   // const handleResponse = () => {

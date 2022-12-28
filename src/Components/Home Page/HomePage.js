@@ -95,19 +95,29 @@ const HomePage = () => {
   const userdata = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
   useEffect(() => {
-    axios
-      .post(
-        "/get-medicines",
-        {},
-        {
-          headers: header,
-        }
-      )
-      .then((response) => {
-        console.log(response.data);
-        dispatch(userData(response.data));
+    fetch("/get-medicines", {
+      method: "POST",
+      body: JSON.stringify(header),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        dispatch(userData(res.data));
       })
       .catch((err) => console.log(err));
+    // axios
+    //   .post(
+    //     "/get-medicines",
+    //     {},
+    //     {
+    //       headers: header,
+    //     }
+    //   )
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     dispatch(userData(response.data));
+    //   })
+    //   .catch((err) => console.log(err));
   }, []);
   const reservationData = {
     specialty: "Aly",
