@@ -30,7 +30,7 @@ const Login = () => {
       method: "POST",
       body: JSON.stringify(data),
     })
-      .then(res > res.json())
+      .then((res) => res.json())
       .then((res) => {
         if (res.data == "Invalid user credentials!") {
           setShowModal(true);
