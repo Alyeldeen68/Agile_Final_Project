@@ -115,10 +115,10 @@ const HomePage = () => {
     axios
       .post(
         "https://dawi.onrender.com/add-medicine-2",
-        // {
-        //   name: "Aly",
-        //   expiryDate: "2000-12-24",
-        // },
+        {
+          name: "Aly",
+          expiryDate: "2000-12-24",
+        },
         {
           headers: header,
         }
