@@ -133,9 +133,8 @@ const HomePage = () => {
     //   })
     //   .catch((err) => console.log(err));
 
-    fetch({
+    fetch("/add-reservation", {
       method: "POST",
-      url: "/add-reservation",
       headers: {
         authorization: accessToken,
         "content,-type": "text/json",

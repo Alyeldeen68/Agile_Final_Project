@@ -22,6 +22,7 @@ const Login = () => {
 
   const handleSubmit = () => {
     setIsLoading(true);
+
     axios
       .post("/login", {
         email: email,
