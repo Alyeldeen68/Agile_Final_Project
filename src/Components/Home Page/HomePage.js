@@ -107,7 +107,7 @@ const HomePage = () => {
     //   .catch((err) => console.log(err));
     axios
       .post(
-        "/get-medicines",
+        "https://dawi.onrender.com/get-medicines",
         {},
         {
           headers: header,
@@ -155,9 +155,8 @@ const HomePage = () => {
     //   .then((d) => console.log(d))
     //   .catch((err) => console.log(err));
 
-    axios({
+    axios("https://dawi.onrender.com/add-reservation", {
       method: "post",
-      url: "/add-reservation",
       timeout: 5000,
       headers: {
         authorization: accessToken,

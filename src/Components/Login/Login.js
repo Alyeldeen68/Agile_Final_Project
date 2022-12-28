@@ -46,7 +46,7 @@ const Login = () => {
     //     console.log(err);
     //   });
     axios
-      .post("/login", {
+      .post("https://dawi.onrender.com/login", {
         email: email,
         password: password,
       })
