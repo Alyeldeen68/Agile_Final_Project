@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = () => {
     setIsLoading(true);
     axios
-      .post("https://dawi.onrender.com/login", {
+      .post("/login", {
         email: email,
         password: password,
       })

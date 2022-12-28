@@ -97,7 +97,7 @@ const HomePage = () => {
   useEffect(() => {
     axios
       .post(
-        "https://dawi.onrender.com/get-medicines",
+        "/get-medicines",
         {},
         {
           headers: header,
@@ -135,7 +135,7 @@ const HomePage = () => {
 
     fetch({
       method: "POST",
-      url: "https://dawi.onrender.com/add-reservation",
+      url: "/add-reservation",
       headers: {
         authorization: accessToken,
         "content,-type": "text/json",
