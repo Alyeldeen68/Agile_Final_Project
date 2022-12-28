@@ -109,7 +109,10 @@ const HomePage = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-
+  const reservationData = {
+    specialty: "Aly",
+    dateAndTime: "2000-12-24",
+  };
   const handleAddItem = () => {
     alert("Hello");
     // axios
@@ -129,21 +132,34 @@ const HomePage = () => {
     //     dispatch(userData(response.data));
     //   })
     //   .catch((err) => console.log(err));
-    axios({
-      method: "post",
+
+    fetch({
+      method: "POST",
       url: "https://dawi.onrender.com/add-reservation",
-      timeout: 5000,
       headers: {
         authorization: accessToken,
-        "content-type": "text/json",
+        "content,-type": "text/json",
       },
-      data: {
-        specialty: "Aly",
-        dateAndTime: "2000-12-24",
-      },
+      body: JSON.stringify(reservationData),
     })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
+
+    // axios({
+    //   method: "post",
+    //   url: "https://dawi.onrender.com/add-reservation",
+    //   timeout: 5000,
+    //   headers: {
+    //     authorization: accessToken,
+    //     "content-type": "text/json",
+    //   },
+    //   data: {
+    //     specialty: "Aly",
+    //     dateAndTime: "2000-12-24",
+    //   },
+    // })
+    //   .then((response) => console.log(response))
+    //   .catch((err) => console.log(err));
 
     setTimeout(() => {}, 1000);
     console.log("Hello koko");
