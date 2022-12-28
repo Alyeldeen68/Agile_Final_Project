@@ -133,10 +133,7 @@ const HomePage = () => {
           expiryDate: "2000-12-24",
         },
         {
-          headers: {
-            specialty: "Aly",
-            dateAndTime: "2000-12-24",
-          },
+          headers: header,
         }
       )
       .then((response) => {
