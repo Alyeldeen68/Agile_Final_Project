@@ -132,7 +132,7 @@ const HomePage = () => {
     // console.log("Hello koko");
     axios
       .post(
-        "https://dawi.onrender.com/add-medicine",
+        "https://dawi.onrender.com/add-medicine-2",
         {
           name: "Aly",
           expiryDate: "2000-12-24",
