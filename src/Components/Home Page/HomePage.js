@@ -129,8 +129,8 @@ const HomePage = () => {
       .post(
         "https://dawi.onrender.com/add-reservation",
         {
-          name: "Aly",
-          expiryDate: "2000-12-24",
+          specialty: "Aly",
+          dateAndTime: "2000-12-24",
         },
         {
           headers: header,
