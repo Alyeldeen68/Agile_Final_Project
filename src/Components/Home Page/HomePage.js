@@ -142,6 +142,7 @@ const HomePage = () => {
         }
       )
       .then((response) => {
+        console.log("Hello");
         console.log(response.data);
         dispatch(userData(response.data));
       })
