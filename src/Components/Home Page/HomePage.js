@@ -112,41 +112,41 @@ const HomePage = () => {
 
   const handleAddItem = () => {
     alert("Hello");
-    axios
-      .post(
-        "https://dawi.onrender.com/add-medicine-2",
-        {
-          name: "Aly",
-          expiryDate: "2000-12-24",
-        },
-        {
-          headers: header,
-        }
-      )
-      .then((response) => {
-        console.log("Hello");
-        console.log(response.data);
-        dispatch(userData(response.data));
-      })
-      .catch((err) => console.log(err));
-    // axios({
-    //   method: "post",
-    //   url: "https://dawi.onrender.com/add-medicine",
-    //   timeout: 5000,
-    //   headers: {
-    //     authorization: accessToken,
-    //     "content-type": "text/json",
-    //   },
-    //   data: {
-    //     name: "Aly",
-    //     expiryDate: "2000-12-24",
-    //   },
-    // })
-    //   .then((response) => console.log(response))
+    // axios
+    //   .post(
+    //     "https://dawi.onrender.com/add-medicine-2",
+    //     {
+    //       name: "Aly",
+    //       expiryDate: "2000-12-24",
+    //     },
+    //     {
+    //       headers: header,
+    //     }
+    //   )
+    //   .then((response) => {
+    //     console.log("Hello");
+    //     console.log(response.data);
+    //     dispatch(userData(response.data));
+    //   })
     //   .catch((err) => console.log(err));
+    axios({
+      method: "post",
+      url: "https://dawi.onrender.com/add-medicine",
+      timeout: 5000,
+      headers: {
+        authorization: accessToken,
+        "content-type": "text/json",
+      },
+      data: {
+        name: "Aly",
+        expiryDate: "2000-12-24",
+      },
+    })
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
 
-    // setTimeout(() => {}, 1000);
-    // console.log("Hello koko");
+    setTimeout(() => {}, 1000);
+    console.log("Hello koko");
   };
 
   return (
