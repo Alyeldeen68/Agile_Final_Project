@@ -115,6 +115,7 @@ button {
 
 .personal-data {
   margin-right: 5%;
+  display: block;
 }
 
 @media (max-width: 576px) {
@@ -123,6 +124,9 @@ button {
   }
   .side-bar {
     width: 4rem;
+  }
+  .personal-data {
+    display: none;
   }
   .side-bar-header {
     align-self: flex-start;

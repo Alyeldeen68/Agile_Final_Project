@@ -146,6 +146,10 @@ const HomePage = () => {
           .catch((err) => console.log(err));
   }, []);
 
+  const sideBarImg = isPharmacist
+    ? "https://static.vecteezy.com/system/resources/previews/006/174/506/original/female-pharmacist-doing-her-job-dispensing-medicine-free-vector.jpg"
+    : "https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg?w=2000";
+
   const reservationData = {
     specialty: "Aly",
     dateAndTime: "2000-12-24",
@@ -328,7 +332,7 @@ const HomePage = () => {
                     variants={imgVariable}
                     onClick={() => dispatch(signOut())}
                     className="side-bar-header-logo"
-                    src="https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg?w=2000"
+                    src={sideBarImg}
                   />
                 </RouterLink>
               </motion.div>
@@ -382,7 +386,7 @@ const HomePage = () => {
                   <div className="personal-data">
                     <p>Name : {userFirstName}</p>
                     <p>Email : {userEmail} </p>
-                    <p>Phone Number : {userPhone}</p>
+                    <p> {userPhone}</p>
                   </div>
                 </div>
               </div>
