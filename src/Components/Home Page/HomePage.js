@@ -96,16 +96,15 @@ const HomePage = () => {
   const [showAddItemModal, setShowAddItemModal] = useState(false);
   const [additemName, setAddItemName] = useState("");
   const [addItemDate, setAddItemDate] = useState("");
-  const [editItem, setEditItem] = useState(false);
-  const [editName, setEditName] = useState("");
-  const [addReservation, setAddReservation] = useState(false);
-  const [editReservation, setEditReservation] = useState(false);
+  const [addReservation, setAddReservation] = useState("");
+  const [addReservationDate, setAddReservationDate] = useState("");
   const userdata = useSelector((state) => state.user.data);
   const userID = useSelector((state) => state.login.userID);
   const userPhone = useSelector((state) => state.login.userPhone);
   const userEmail = useSelector((state) => state.login.userEmail);
   const userFirstName = useSelector((state) => state.login.userFirstName);
   const dispatch = useDispatch();
+  const isPharmacist = useSelector((state) => state.login.isPharmacist);
   useEffect(() => {
     // fetch("/get-medicines", {
     //   method: "POST",
@@ -352,7 +351,7 @@ const HomePage = () => {
                     <h4></h4>
                   </div>
                 </div>
-                <div className="group">
+                <div className="group perosonal">
                   <h3 className="group-heading">
                     <motion.div
                       animate={{
@@ -401,30 +400,57 @@ const HomePage = () => {
        **************************************************** MODALS ******************************* */}
       <Modal backdrop="static" show={showDataModal}>
         <Modal.Header closeButton onClick={() => setShowDataModal(false)}>
-          {addItem && <Modal.Title>Add item</Modal.Title>}
-          {editItem && <Modal.Title>Edit item</Modal.Title>}
-          {addReservation && <Modal.Title>Add reservation</Modal.Title>}
-          {editReservation && <Modal.Title>Edit reservation</Modal.Title>}
+          {isPharmacist && <Modal.Title>Add item</Modal.Title>}
+          {isDoctor && <Modal.Title>Add reservation</Modal.Title>}
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Medicine name</Form.Label>
-              <Form.Control
-                placeholder="Name"
-                autoFocus
-                onChange={(e) => setAddItemName(e.target.value)}
-              />
+              {isPharmacist ? (
+                <>
+                  <Form.Label>Medicine name</Form.Label>
+                  <Form.Control
+                    placeholder="Name"
+                    autoFocus
+                    onChange={(e) => setAddItemName(e.target.value)}
+                  />
+                </>
+              ) : (
+                <>
+                  <Form.Label>Reservation Type</Form.Label>
+                  <Form.Control
+                    placeholder="Reservation"
+                    autoFocus
+                    onChange={(e) => setAddReservation(e.target.value)}
+                  />
+                </>
+              )}
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Expiry date</Form.Label>
-              <br />
-              <small>Format : yy-mm-dd</small>
-              <Form.Control
-                placeholder="Date"
-                autoFocus
-                onChange={(e) => setAddItemDate(e.target.value)}
-              />
+              {isPharmacist ? (
+                <>
+                  {" "}
+                  <Form.Label>Expiry date</Form.Label>
+                  <br />
+                  <small>Format : yy-mm-dd</small>
+                  <Form.Control
+                    placeholder="Date"
+                    autoFocus
+                    onChange={(e) => setAddItemDate(e.target.value)}
+                  />
+                </>
+              ) : (
+                <>
+                  <Form.Label>Date of reservation</Form.Label>
+                  <br />
+                  <small>Format : yy-mm-dd</small>
+                  <Form.Control
+                    placeholder="Date"
+                    autoFocus
+                    onChange={(e) => setAddReservationDate(e.target.value)}
+                  />
+                </>
+              )}
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -432,9 +458,15 @@ const HomePage = () => {
           <Button variant="secondary" onClick={() => setShowDataModal(false)}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleAddItem}>
-            Save Changes
-          </Button>
+          {isPharmacist ? (
+            <Button variant="primary" onClick={handleAddItem}>
+              Save Changes
+            </Button>
+          ) : (
+            <Button variant="primary" onClick={handleAddReservation}>
+              Save Changes
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>

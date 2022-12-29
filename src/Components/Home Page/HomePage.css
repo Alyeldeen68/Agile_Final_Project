@@ -108,6 +108,10 @@ button {
 .main-card {
   color: black;
 }
+
+.personal {
+  display: block;
+}
 @media (max-width: 576px) {
   .side-bar-header-icon {
     display: none;
@@ -122,6 +126,9 @@ button {
   }
   .side-bar-header img {
     width: 50px;
+  }
+  .personal {
+    display: none;
   }
 }
 /* Small devices (landscape phones, 576px and up)  */
