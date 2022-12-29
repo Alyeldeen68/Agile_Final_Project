@@ -10,8 +10,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 const CardContainer = ({ img, title, id }) => {
   const isDoctor = useSelector((state) => state.login.isDoctor);
+  const isPharmacist = useSelector((state) => state.login.isPharmacist);
   const userID = useSelector((state) => state.login.userID);
-  const [editItem, setEditItem] = useState(false);
   const [editName, setEditName] = useState("");
   const [showDataModal, setShowDataModal] = useState(false);
   const dispatch = useDispatch();
@@ -57,24 +57,13 @@ const CardContainer = ({ img, title, id }) => {
 
       <Modal backdrop="static" show={showDataModal}>
         <Modal.Header closeButton onClick={() => setShowDataModal(false)}>
-          {editItem && <Modal.Title>Edit item</Modal.Title>}
+          {isPharmacist && <Modal.Title>Edit item</Modal.Title>}
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="name@example.com"
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows={3} />
+              {isPharmacist && <Form.Label>Item name</Form.Label>}
+              <Form.Control placeholder="Item name" autoFocus />
             </Form.Group>
           </Form>
         </Modal.Body>
