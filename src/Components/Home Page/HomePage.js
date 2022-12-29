@@ -102,6 +102,8 @@ const HomePage = () => {
   const [editReservation, setEditReservation] = useState(false);
   const userdata = useSelector((state) => state.user.data);
   const userID = useSelector((state) => state.login.userID);
+  const userPhone = useSelector((state) => state.login.userPhone);
+  const userEmail = useSelector((state) => state.login.userEmail);
   const userFirstName = useSelector((state) => state.login.userFirstName);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -362,6 +364,9 @@ const HomePage = () => {
                       Personal Data
                     </motion.div>
                   </h3>
+                  <p>{userEmail} </p>
+                  <p>{userPhone}</p>
+                  <p>{userFirstName}</p>
                   <Item icon={<Dashboard />} name="Dashboard" />
                   <Item icon={<Dashboard />} name="Dashboard" />
                   <Item icon={<Dashboard />} name="Dashboard" />

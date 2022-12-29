@@ -41,19 +41,18 @@ const CardContainer = ({ img, title, id, date }) => {
           variant="top"
           src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
         />
+
         <Card.Body>
           <div className="card-body">
-            <Card.Body>
-              <div>
-                <i> {title} </i>
-              </div>
-              <div>
-                <i> {date} </i>
-              </div>
-            </Card.Body>
+            <div>
+              <i> {title} </i>
+            </div>
+            <div>
+              <i> {date} </i>
+            </div>
           </div>
-          <hr />
         </Card.Body>
+
         <div className="btn-container">
           <Button
             style={{ textAlign: "center" }}
