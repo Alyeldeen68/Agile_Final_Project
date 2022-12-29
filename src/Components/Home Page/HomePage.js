@@ -379,13 +379,11 @@ const HomePage = () => {
                       Personal Data
                     </motion.div>
                   </h3>
-                  <p>{userEmail} </p>
-                  <p>{userPhone}</p>
-                  <p>{userFirstName}</p>
-                  <Item icon={<Dashboard />} name="Dashboard" />
-                  <Item icon={<Dashboard />} name="Dashboard" />
-                  <Item icon={<Dashboard />} name="Dashboard" />
-                  <Item icon={<Dashboard />} name="Dashboard" />
+                  <div className="personal-data">
+                    <p>Name : {userFirstName}</p>
+                    <p>Email : {userEmail} </p>
+                    <p>Phone Number : {userPhone}</p>
+                  </div>
                 </div>
               </div>
             </motion.div>

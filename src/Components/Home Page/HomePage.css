@@ -112,6 +112,11 @@ button {
 .personal {
   display: block;
 }
+
+.personal-data {
+  margin-right: 5%;
+}
+
 @media (max-width: 576px) {
   .side-bar-header-icon {
     display: none;
