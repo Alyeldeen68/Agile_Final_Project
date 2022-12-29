@@ -136,7 +136,6 @@ const HomePage = () => {
   const handleAddItem = () => {
     setShowDataModal(true);
     setAddItem(true);
-    alert("Hello");
     axios
       .post("https://dawi.onrender.com/add-medicine-2", {
         id: userID,
@@ -227,7 +226,6 @@ const HomePage = () => {
             Successfully added item
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>Logged in sucessfuly </Modal.Body>
         <Modal.Footer>
           <Button
             variant="secondary"

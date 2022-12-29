@@ -22,10 +22,9 @@ const CardContainer = ({ img, title, id }) => {
   };
   const itemId = id;
   const handleEdit = () => {
-    setShowDataModal(true);
     axios
       .post("https://dawi.onrender.com/edit-medicine", {
-        name: "New name",
+        name: editName,
         id: itemId,
         expiryDate: "2000-5-7",
         pharmacistID: userID,
@@ -46,7 +45,7 @@ const CardContainer = ({ img, title, id }) => {
           <div className="btn-container">
             <Button
               style={{ textAlign: "center" }}
-              onClick={handleEdit}
+              onClick={() => setShowDataModal(true)}
               variant="primary"
             >
               Edit
@@ -54,7 +53,6 @@ const CardContainer = ({ img, title, id }) => {
           </div>
         </Card.Body>
       </Card>
-
       <Modal backdrop="static" show={showDataModal}>
         <Modal.Header closeButton onClick={() => setShowDataModal(false)}>
           {isPharmacist && <Modal.Title>Edit item</Modal.Title>}
@@ -63,13 +61,21 @@ const CardContainer = ({ img, title, id }) => {
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               {isPharmacist && <Form.Label>Item name</Form.Label>}
-              <Form.Control placeholder="Item name" autoFocus />
+              <Form.Control
+                onChange={(e) => setEditName(e.target.value)}
+                placeholder="Item name"
+                autoFocus
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
-          <Button variant="primary">Save Changes</Button>
+          <Button variant="secondary" onClick={() => setShowDataModal(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleEdit}>
+            Save Changes
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>
