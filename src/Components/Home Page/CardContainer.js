@@ -8,7 +8,7 @@ import Modal from "react-bootstrap/Modal";
 import { userData } from "../../Redux/userReducer";
 import { useEffect, useState } from "react";
 import axios from "axios";
-const CardContainer = ({ img, title, id }) => {
+const CardContainer = ({ img, title, id, date }) => {
   const isDoctor = useSelector((state) => state.login.isDoctor);
   const isPharmacist = useSelector((state) => state.login.isPharmacist);
   const userID = useSelector((state) => state.login.userID);
@@ -45,7 +45,9 @@ const CardContainer = ({ img, title, id }) => {
             <Card.Body>
               <i> {title} </i>
             </Card.Body>
-            <Card.Body></Card.Body>
+            <Card.Body>
+              <i> {date} </i>
+            </Card.Body>
           </div>
           <div className="btn-container">
             <Button

@@ -95,6 +95,7 @@ const HomePage = () => {
   const [addItem, setAddItem] = useState(false);
   const [showAddItemModal, setShowAddItemModal] = useState(false);
   const [additemName, setAddItemName] = useState("");
+  const [addItemDate, setAddItemDate] = useState("");
   const [editItem, setEditItem] = useState(false);
   const [editName, setEditName] = useState("");
   const [addReservation, setAddReservation] = useState(false);
@@ -139,7 +140,7 @@ const HomePage = () => {
     axios
       .post("https://dawi.onrender.com/add-medicine-2", {
         id: userID,
-        expiryDate: "2000-12-24",
+        expiryDate: addItemDate,
         name: additemName,
       })
       .then((response) => {
@@ -363,7 +364,12 @@ const HomePage = () => {
             <div className="card-container">
               {userdata.map((item) =>
                 item.map((i) => (
-                  <CardContainer img={i.img} title={i.name} id={i._id} />
+                  <CardContainer
+                    img={i.img}
+                    title={i.name}
+                    id={i._id}
+                    date={i.expiryDate}
+                  />
                 ))
               )}
             </div>
@@ -384,9 +390,19 @@ const HomePage = () => {
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Medicine name</Form.Label>
               <Form.Control
-                placeholder="name"
+                placeholder="Name"
                 autoFocus
                 onChange={(e) => setAddItemName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Expiry date</Form.Label>
+              <br />
+              <small>Format : yy-mm-dd</small>
+              <Form.Control
+                placeholder="Date"
+                autoFocus
+                onChange={(e) => setAddItemDate(e.target.value)}
               />
             </Form.Group>
           </Form>
