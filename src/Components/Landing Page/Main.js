@@ -32,7 +32,7 @@ const Main = () => {
                   </Card.Title>
                 </div>
                 <div>
-                  <Card.Text>
+                  <Card.Text style={{ textAlign: "center" }}>
                     If you're a doctor and willing to help people in need, don't
                     hesitate and join us right now. It is our pleasure to have
                     you on board!
@@ -69,7 +69,7 @@ const Main = () => {
                   </Card.Title>
                 </div>
                 <div>
-                  <Card.Text>
+                  <Card.Text style={{ textAlign: "center" }}>
                     To all pharmacists out there, share your spare and unneeded
                     medicines, supplies and help people who really need them,
                     join us and register us now!
