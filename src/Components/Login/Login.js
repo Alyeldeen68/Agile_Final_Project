@@ -51,6 +51,7 @@ const Login = () => {
         password: password,
       })
       .then((response) => {
+        console.log(response);
         if (response.data == "Invalid user credentials!") {
           setShowModal(true);
           setIsLoading(false);
