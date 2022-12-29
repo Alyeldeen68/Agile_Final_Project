@@ -19,7 +19,7 @@ const CardContainer = ({ img, title, id, date }) => {
   const [showDataModal, setShowDataModal] = useState(false);
   const dispatch = useDispatch();
   var accessToken = useSelector((state) => state.login.userName.accessToken);
-
+  const Date = date.slice(0, 9);
   const itemId = id;
   const handleEditItem = () => {
     axios
@@ -59,7 +59,7 @@ const CardContainer = ({ img, title, id, date }) => {
               <i> {title} </i>
             </div>
             <div>
-              <i> {date} </i>
+              <i> {Date} </i>
             </div>
           </div>
         </Card.Body>
