@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import { useSelector } from "react-redux";
 import Modal from "react-bootstrap/Modal";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 const CardContainer = ({ img, title, id }) => {
   const isDoctor = useSelector((state) => state.login.isDoctor);
