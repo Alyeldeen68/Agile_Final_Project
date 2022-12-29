@@ -5,3 +5,10 @@
   align-items: center;
   gap: 3%;
 }
+
+.card-body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+}

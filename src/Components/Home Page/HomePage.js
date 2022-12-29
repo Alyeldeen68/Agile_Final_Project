@@ -329,17 +329,6 @@ const HomePage = () => {
                       <Item icon={<AddIcon />} name="Add item" />
                     </button>
                   )}
-
-                  {doctorServices ? (
-                    <button>
-                      <Item icon={<EditIcon />} name="Edit reservation" />
-                    </button>
-                  ) : (
-                    <button>
-                      <Item icon={<EditIcon />} name="Edit item" />
-                    </button>
-                  )}
-
                   <div className="group-main">
                     <h4></h4>
                   </div>
