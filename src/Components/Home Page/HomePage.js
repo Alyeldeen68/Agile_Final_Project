@@ -108,7 +108,7 @@ const HomePage = () => {
     axios
       .post(
         "https://dawi.onrender.com/get-medicines",
-        {},
+
         {
           headers: header,
         }
@@ -129,11 +129,11 @@ const HomePage = () => {
       .post(
         "https://dawi.onrender.com/add-reservation",
         {
-          headers: header,
-        },
-        {
           specialty: "Aly",
           dateAndTime: "2000-12-24",
+        },
+        {
+          headers: header,
         }
       )
       .then((response) => {
