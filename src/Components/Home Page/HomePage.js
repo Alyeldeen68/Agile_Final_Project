@@ -386,7 +386,7 @@ const HomePage = () => {
                   <div className="personal-data">
                     <p>Name : {userFirstName}</p>
                     <p>Email : {userEmail} </p>
-                    <p> {userPhone}</p>
+                    <p>Phone Number : {userPhone}</p>
                   </div>
                 </div>
               </div>

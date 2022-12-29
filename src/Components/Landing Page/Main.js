@@ -23,22 +23,32 @@ const Main = () => {
           <Card style={{ width: "18rem", borderRadius: "1rem" }}>
             <Card.Img className="card-img" variant="top" src={doctorImg} />
             <Card.Body>
-              <Card.Title style={{ textAlign: "center" }}>Doctor</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <div className="card-button">
-                <RouterLink to="/doctor-form">
-                  <Button
-                    onClick={() => {
-                      dispatch(signUp("Doctor"));
-                    }}
-                    variant="primary"
-                  >
-                    Register
-                  </Button>
-                </RouterLink>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <div>
+                  <Card.Title style={{ textAlign: "center" }}>
+                    Doctor
+                  </Card.Title>
+                </div>
+                <div>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                </div>
+                <div>
+                  <div className="card-button">
+                    <RouterLink to="/doctor-form">
+                      <Button
+                        onClick={() => {
+                          dispatch(signUp("Doctor"));
+                        }}
+                        variant="primary"
+                      >
+                        Register
+                      </Button>
+                    </RouterLink>
+                  </div>
+                </div>
               </div>
             </Card.Body>
           </Card>
