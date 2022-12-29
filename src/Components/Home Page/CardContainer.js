@@ -13,6 +13,11 @@ const CardContainer = ({ img, title, id }) => {
   const [editItem, setEditItem] = useState(false);
   const [editName, setEditName] = useState("");
   const [showDataModal, setShowDataModal] = useState(false);
+  var accessToken = useSelector((state) => state.login.userName.accessToken);
+  const header = {
+    authorization: accessToken,
+    "content-type": "text/json",
+  };
   const itemId = id;
   const handleEdit = () => {
     setShowDataModal(true);
