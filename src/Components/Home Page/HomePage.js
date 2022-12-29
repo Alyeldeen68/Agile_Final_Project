@@ -93,6 +93,7 @@ const HomePage = () => {
   const [doctorServices, setDoctorServices] = useState(isDoctor ? true : false);
   const [showDataModal, setShowDataModal] = useState(false);
   const [addItem, setAddItem] = useState(false);
+  const [showAddItemModal, setShowAddItemModal] = useState(false);
   const [additemName, setAddItemName] = useState("");
   const [editItem, setEditItem] = useState(false);
   const [editName, setEditName] = useState("");
@@ -148,6 +149,7 @@ const HomePage = () => {
       })
       .catch((err) => console.log(err));
     setShowDataModal(false);
+    setShowAddItemModal(true);
     // ******************************  Add Reservation shaghalaa *****************************
     // axios
     //   .post("https://dawi.onrender.com/add-reservation", {
@@ -218,6 +220,25 @@ const HomePage = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      <Modal show={showAddItemModal} onHide={() => setShowAddItemModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title style={{ color: "#008000" }}>
+            Successfully added item
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Logged in sucessfuly </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            style={{ backgroundColor: "#008000" }}
+            onClick={() => setShowAddItemModal(false)}
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       {isLogged && (
         <div className="main-dashboard">
           <motion.div
