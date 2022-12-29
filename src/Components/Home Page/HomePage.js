@@ -135,17 +135,30 @@ const HomePage = () => {
     setAddItem(true);
     alert("Hello");
     axios
-      .post("https://dawi.onrender.com/add-reservation", {
-        specialty: "Aly",
-        dateAndTime: "2000-12-24",
-        doctorID: userID,
-        doctorName: userFirstName,
+      .post("https://dawi.onrender.com/add-medecine-2", {
+        id: userID,
+        expiryDate: "2000-12-24",
+        name: "Zeby",
       })
       .then((response) => {
         console.log("Hello");
         console.log(response.data);
       })
       .catch((err) => console.log(err));
+
+    // ******************************  Add Reservation *****************************
+    // axios
+    //   .post("https://dawi.onrender.com/add-reservation", {
+    //     specialty: "Aly",
+    //     dateAndTime: "2000-12-24",
+    //     doctorID: userID,
+    //     doctorName: userFirstName,
+    //   })
+    //   .then((response) => {
+    //     console.log("Hello");
+    //     console.log(response.data);
+    //   })
+    //   .catch((err) => console.log(err));
     // *************************Fetch***************************************
     // fetch("/add-reservation", {
     //   method: "POST",
