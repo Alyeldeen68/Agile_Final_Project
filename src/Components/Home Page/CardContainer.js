@@ -25,8 +25,19 @@ const CardContainer = ({ img, title, id }) => {
       })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
-
-    console.log("Hello");
+    axios
+      .post(
+        "https://dawi.onrender.com/get-medicines",
+        {},
+        {
+          headers: header,
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+        dispatch(userData(response.data));
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div>
