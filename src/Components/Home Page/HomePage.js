@@ -144,7 +144,7 @@ const HomePage = () => {
       })
       .then((response) => {
         console.log("Hello");
-        console.log(response);
+        dispatch(userData(response));
       })
       .catch((err) => console.log(err));
 
