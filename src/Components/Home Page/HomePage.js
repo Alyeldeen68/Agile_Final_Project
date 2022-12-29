@@ -140,14 +140,14 @@ const HomePage = () => {
       .post("https://dawi.onrender.com/add-medicine-2", {
         id: userID,
         expiryDate: "2000-12-24",
-        name: "Manga",
+        name: additemName,
       })
       .then((response) => {
         console.log("Hello");
         dispatch(userData(response.data));
       })
       .catch((err) => console.log(err));
-
+    setShowDataModal(false);
     // ******************************  Add Reservation shaghalaa *****************************
     // axios
     //   .post("https://dawi.onrender.com/add-reservation", {
@@ -301,7 +301,12 @@ const HomePage = () => {
                       />
                     </button>
                   ) : (
-                    <button onClick={handleAddItem}>
+                    <button
+                      onClick={() => {
+                        setShowDataModal(true);
+                        setAddItem(true);
+                      }}
+                    >
                       <Item icon={<AddIcon />} name="Add item" />
                     </button>
                   )}
@@ -369,25 +374,22 @@ const HomePage = () => {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Medicine name</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="name@example.com"
+                placeholder="name"
                 autoFocus
+                onChange={(e) => setAddItemName(e.target.value)}
               />
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows={3} />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
-          <Button variant="primary">Save Changes</Button>
+          <Button variant="secondary" onClick={() => setShowDataModal(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleAddItem}>
+            Save Changes
+          </Button>
         </Modal.Footer>
       </Modal>
     </>

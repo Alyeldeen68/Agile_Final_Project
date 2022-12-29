@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 const CardContainer = ({ img, title, id }) => {
   const isDoctor = useSelector((state) => state.login.isDoctor);
+  const userID = useSelector((state) => state.login.userID);
   const [editItem, setEditItem] = useState(false);
   const [editName, setEditName] = useState("");
   const [showDataModal, setShowDataModal] = useState(false);
@@ -36,13 +37,15 @@ const CardContainer = ({ img, title, id }) => {
         />
         <Card.Body>
           <Card.Title style={{ textAlign: "center" }}>{title}</Card.Title>
-          <Button
-            style={{ textAlign: "center" }}
-            onClick={handleEdit}
-            variant="primary"
-          >
-            Edit
-          </Button>
+          <div className="btn-container">
+            <Button
+              style={{ textAlign: "center" }}
+              onClick={handleEdit}
+              variant="primary"
+            >
+              Edit
+            </Button>
+          </div>
         </Card.Body>
       </Card>
 
