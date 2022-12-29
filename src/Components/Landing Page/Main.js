@@ -33,8 +33,9 @@ const Main = () => {
                 </div>
                 <div>
                   <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    If you're a doctor and willing to help people in need, don't
+                    hesitate and join us right now. It is our pleasure to have
+                    you on board!
                   </Card.Text>
                 </div>
                 <div>
@@ -69,8 +70,9 @@ const Main = () => {
                 </div>
                 <div>
                   <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    To all pharmacists out there, share your spare and unneeded
+                    medicines, supplies and help people who really need them,
+                    join us and register us now!
                   </Card.Text>
                 </div>
                 <div className="card-button">
@@ -102,12 +104,15 @@ const Main = () => {
             <div className="main-text">
               <h3>Masr Al Khair</h3>
               <p className="main-text-text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic
+                The first neutral Egyptian charitable organization specialized
+                in combating hunger and funded by zakat funds, alms and
+                donations that are professionally transferred into services and
+                programs to provide healthy food and a safe life opportunity for
+                the beneficiaries, whose impact on their lives is measured in a
+                scientific way. Through 15 years of professional work, we have
+                become experts in the Arab region in the issue of combating
+                hunger, which is the most important issue concerned with human
+                development throughout the entire world.
               </p>
             </div>
           </div>
@@ -122,12 +127,20 @@ const Main = () => {
             <div className="main-text">
               <h3>Resala</h3>
               <p className="main-text-text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic
+                Now Resala has more than 60 branches spread throughout Egypt,
+                and more than 200,000 volunteers volunteer every year, serving
+                millions of Egyptians in about 30 volunteer activities,
+                including caring for orphans, serving the elderly, sheltering
+                street children, serving the blind, deaf, and people with
+                special needs, and lessons Free education, illiteracy
+                eradication, used clothing exhibitions, blood donation, computer
+                and language education, human development, the Holy Qur'an, aid
+                for the needy, charity convoys for poor villages, medical
+                convoys, addiction treatment, feeding the poor, creating
+                productive projects for the poor, and building mosques and
+                schools. And fulfilling the aspirations of cancer children,
+                raising moral awareness for young people, cleaning streets and
+                parks, spreading happiness among people, and caring for animals.
               </p>
             </div>
           </div>
@@ -142,12 +155,16 @@ const Main = () => {
             <div className="main-text">
               <h3>Bahya</h3>
               <p className="main-text-text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic
+                Baheya's story has started when Mrs. Baheya Wahby, a lady from a
+                prominent Egyptian family, was diagnosed with cancer back in
+                1990s. Because she went through the same experience she felt for
+                the fighters and especially the less privileged women, being
+                unable to afford the treatment, she wished to help fight the
+                disease and poverty. After losing her life in the battle, her
+                family then decided to convert her house into a charity hospital
+                supporting women, specialized in early detection and treatment
+                for breast cancer free of charge. Baheya foundation was
+                established in 2015
               </p>
             </div>
           </div>
