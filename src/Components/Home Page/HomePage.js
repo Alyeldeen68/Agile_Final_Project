@@ -61,6 +61,12 @@ const HomePage = () => {
       width: "50px",
     },
   };
+  const sideBarData = {
+    true: {},
+    false: {
+      display: "none",
+    },
+  };
   const menuVariable = {
     true: {},
     false: {
@@ -383,11 +389,17 @@ const HomePage = () => {
                       Personal Data
                     </motion.div>
                   </h3>
-                  <div className="personal-data">
-                    <p>Name : {userFirstName}</p>
-                    <p>Email : {userEmail} </p>
-                    <p>Phone Number : {userPhone}</p>
-                  </div>
+                  <motion.div
+                    initial={`${open}`}
+                    animate={`${open}`}
+                    variants={sideBarData}
+                  >
+                    <div className="personal-data">
+                      <p>Name : {userFirstName}</p>
+                      <p>Email : {userEmail} </p>
+                      <p>Phone Number : {userPhone}</p>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
