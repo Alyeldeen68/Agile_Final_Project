@@ -21,6 +21,7 @@ const CardContainer = ({ img, title, id, date }) => {
   var accessToken = useSelector((state) => state.login.userName.accessToken);
   const Date = date.slice(0, 10);
   const itemId = id;
+  const [showModal, setShowModal] = useState(false);
   const handleEditItem = () => {
     axios
       .post("https://dawi.onrender.com/edit-medicine", {
@@ -55,6 +56,7 @@ const CardContainer = ({ img, title, id, date }) => {
       })
       .then((response) => dispatch(userData(response.data)))
       .catch((err) => console.log(err));
+    setShowModal(true);
   };
 
   const handleReservationDelete = () => {
@@ -65,6 +67,8 @@ const CardContainer = ({ img, title, id, date }) => {
       })
       .then((response) => dispatch(userData(response.data)))
       .catch((err) => console.log(err));
+
+    setShowModal(true);
   };
 
   return (
@@ -188,6 +192,22 @@ const CardContainer = ({ img, title, id, date }) => {
               Save Changes
             </Button>
           )}
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title style={{ color: "#008000" }}>Successful</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Successfully deleted</Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            style={{ backgroundColor: "#008000" }}
+            onClick={() => setShowModal(false)}
+          >
+            Close
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>
