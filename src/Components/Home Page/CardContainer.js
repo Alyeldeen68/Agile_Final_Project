@@ -53,16 +53,16 @@ const CardContainer = ({ img, title, id, date }) => {
             </Card.Body>
           </div>
           <hr />
-          <div className="btn-container">
-            <Button
-              style={{ textAlign: "center" }}
-              onClick={() => setShowDataModal(true)}
-              variant="primary"
-            >
-              Edit
-            </Button>
-          </div>
         </Card.Body>
+        <div className="btn-container">
+          <Button
+            style={{ textAlign: "center" }}
+            onClick={() => setShowDataModal(true)}
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
       </Card>
       <Modal backdrop="static" show={showDataModal}>
         <Modal.Header closeButton onClick={() => setShowDataModal(false)}>

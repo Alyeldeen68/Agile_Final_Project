@@ -191,6 +191,22 @@ const HomePage = () => {
     //   .then((response) => console.log(response))
     //   .catch((err) => console.log(err));
   };
+
+  const handleAddReservation = () => {
+    setShowDataModal(true);
+    axios
+      .post("https://dawi.onrender.com/add-reservation", {
+        specialty: "Aly",
+        dateAndTime: "2000-12-24",
+        doctorID: userID,
+        doctorName: userFirstName,
+      })
+      .then((response) => {
+        console.log("Hello");
+        console.log(response.data);
+      })
+      .catch((err) => console.log(err));
+  };
   // const handleEditItem = () => {
   //   setShowDataModal(true);
   //   setEditItem(true);
@@ -314,7 +330,7 @@ const HomePage = () => {
                   <Item icon={<Dashboard />} name="Dashboard" />
 
                   {doctorServices ? (
-                    <button onClick={handleAddItem}>
+                    <button onClick={handleAddReservation}>
                       <Item
                         icon={<LocalHospitalIcon />}
                         name="Add reservation"
