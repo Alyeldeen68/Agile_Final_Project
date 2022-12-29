@@ -15,23 +15,17 @@ const CardContainer = ({ img, title, id }) => {
   const itemId = id;
   const handleEdit = () => {
     setShowDataModal(true);
-    isDoctor
-      ? axios
-          .post("https://dawi.onrender.com/edit-medicine", {
-            name: "New name",
-            id: itemId,
-            expiryDate: "2000-5-7",
-          })
-          .then((response) => console.log(response))
-          .catch((err) => console.log(err))
-      : axios
-          .post("https://dawi.onrender.com/edit-medicine", {
-            name: "New name",
-            id: itemId,
-            expiryDate: "2000-5-7",
-          })
-          .then((response) => console.log(response))
-          .catch((err) => console.log(err));
+
+    axios
+      .post("https://dawi.onrender.com/edit-medicine", {
+        name: "New name",
+        id: itemId,
+        expiryDate: "2000-5-7",
+      })
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+
+    console.log("Hello");
   };
   return (
     <div>
