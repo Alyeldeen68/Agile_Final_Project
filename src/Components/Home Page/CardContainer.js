@@ -13,6 +13,7 @@ const CardContainer = ({ img, title, id, date }) => {
   const isPharmacist = useSelector((state) => state.login.isPharmacist);
   const userID = useSelector((state) => state.login.userID);
   const [editName, setEditName] = useState("");
+  const [editDate, setEditDate] = useState("");
   const [showDataModal, setShowDataModal] = useState(false);
   const dispatch = useDispatch();
   var accessToken = useSelector((state) => state.login.userName.accessToken);
@@ -26,7 +27,7 @@ const CardContainer = ({ img, title, id, date }) => {
       .post("https://dawi.onrender.com/edit-medicine", {
         name: editName,
         id: itemId,
-        expiryDate: "2000-5-7",
+        expiryDate: editDate,
         pharmacistID: userID,
       })
       .then((response) => dispatch(userData(response.data)))
@@ -74,6 +75,20 @@ const CardContainer = ({ img, title, id, date }) => {
               <Form.Control
                 onChange={(e) => setEditName(e.target.value)}
                 placeholder="Item name"
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              {isPharmacist && (
+                <>
+                  <Form.Label>Expiry date</Form.Label>
+                  <br />
+                  <small>Format : yy-mm-dd</small>
+                </>
+              )}
+              <Form.Control
+                onChange={(e) => setEditDate(e.target.value)}
+                placeholder="Date"
                 autoFocus
               />
             </Form.Group>
