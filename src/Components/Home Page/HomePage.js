@@ -189,17 +189,18 @@ const HomePage = () => {
     //   .then((response) => console.log(response))
     //   .catch((err) => console.log(err));
   };
-  const handleEditItem = () => {
-    setEditItem(true);
-    axios
-      .post("https://dawi.onrender.com/edit-medicine", {
-        name: "New name",
-        id: userID,
-        expiryDate: "2000-5-7",
-      })
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
-  };
+  // const handleEditItem = () => {
+  //   setShowDataModal(true);
+  //   setEditItem(true);
+  //   axios
+  //     .post("https://dawi.onrender.com/edit-medicine", {
+  //       name: "New name",
+  //       id: userID,
+  //       expiryDate: "2000-5-7",
+  //     })
+  //     .then((response) => console.log(response))
+  //     .catch((err) => console.log(err));
+  // };
   return (
     <>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -310,7 +311,7 @@ const HomePage = () => {
                       <Item icon={<EditIcon />} name="Edit reservation" />
                     </button>
                   ) : (
-                    <button onClick={handleEditItem}>
+                    <button>
                       <Item icon={<EditIcon />} name="Edit item" />
                     </button>
                   )}
@@ -348,7 +349,9 @@ const HomePage = () => {
             <h2>Hello, {role} </h2>
             <div className="card-container">
               {userdata.map((item) =>
-                item.map((i) => <CardContainer img={i.img} title={i.name} />)
+                item.map((i) => (
+                  <CardContainer img={i.img} title={i.name} id={i.id} />
+                ))
               )}
             </div>
           </motion.div>
