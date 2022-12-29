@@ -14,21 +14,33 @@ const CardContainer = ({ img, title, id, date }) => {
   const userID = useSelector((state) => state.login.userID);
   const [editName, setEditName] = useState("");
   const [editDate, setEditDate] = useState("");
+  const [editReservation, setEditReservation] = useState("");
+  const [editReservationDate, setEditReservationDate] = useState("");
   const [showDataModal, setShowDataModal] = useState(false);
   const dispatch = useDispatch();
   var accessToken = useSelector((state) => state.login.userName.accessToken);
-  const header = {
-    authorization: accessToken,
-    "content-type": "text/json",
-  };
+
   const itemId = id;
-  const handleEdit = () => {
+  const handleEditItem = () => {
     axios
       .post("https://dawi.onrender.com/edit-medicine", {
         name: editName,
         id: itemId,
         expiryDate: editDate,
         pharmacistID: userID,
+      })
+      .then((response) => dispatch(userData(response.data)))
+      .catch((err) => console.log(err));
+    setShowDataModal(false);
+  };
+
+  const handleEditReservation = () => {
+    axios
+      .post("https://dawi.onrender.com/edit-reservation", {
+        specialty: editReservation,
+        id: itemId,
+        dateAndTime: editReservationDate,
+        doctorID: userID,
       })
       .then((response) => dispatch(userData(response.data)))
       .catch((err) => console.log(err));
@@ -41,7 +53,6 @@ const CardContainer = ({ img, title, id, date }) => {
           variant="top"
           src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
         />
-
         <Card.Body>
           <div className="card-body">
             <div>
@@ -63,33 +74,66 @@ const CardContainer = ({ img, title, id, date }) => {
           </Button>
         </div>
       </Card>
+
       <Modal backdrop="static" show={showDataModal}>
         <Modal.Header closeButton onClick={() => setShowDataModal(false)}>
           {isPharmacist && <Modal.Title>Edit item</Modal.Title>}
+          {isDoctor && <Modal.Title>Edit Reservation</Modal.Title>}
         </Modal.Header>
         <Modal.Body>
           <Form>
+            {isPharmacist ? (
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Item name</Form.Label>
+                <Form.Control
+                  onChange={(e) => setEditName(e.target.value)}
+                  placeholder="Item name"
+                  autoFocus
+                />
+              </Form.Group>
+            ) : (
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label>Reservation type</Form.Label>
+                <Form.Control
+                  onChange={(e) => setEditReservation(e.target.value)}
+                  placeholder="Reservation type"
+                  autoFocus
+                />
+              </Form.Group>
+            )}
+
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              {isPharmacist && <Form.Label>Item name</Form.Label>}
-              <Form.Control
-                onChange={(e) => setEditName(e.target.value)}
-                placeholder="Item name"
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              {isPharmacist && (
+              {isPharmacist ? (
                 <>
                   <Form.Label>Expiry date</Form.Label>
                   <br />
                   <small>Format : yy-mm-dd</small>
+
+                  <Form.Control
+                    onChange={(e) => setEditDate(e.target.value)}
+                    placeholder="Date"
+                    autoFocus
+                  />
+                </>
+              ) : (
+                <>
+                  <Form.Label>Date of reservation</Form.Label>
+                  <br />
+                  <small>Format : yy-mm-dd</small>
+
+                  <Form.Control
+                    onChange={(e) => setEditReservationDate(e.target.value)}
+                    placeholder="Date"
+                    autoFocus
+                  />
                 </>
               )}
-              <Form.Control
-                onChange={(e) => setEditDate(e.target.value)}
-                placeholder="Date"
-                autoFocus
-              />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -97,9 +141,16 @@ const CardContainer = ({ img, title, id, date }) => {
           <Button variant="secondary" onClick={() => setShowDataModal(false)}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleEdit}>
-            Save Changes
-          </Button>
+
+          {isPharmacist ? (
+            <Button variant="primary" onClick={handleEditItem}>
+              Save Changes
+            </Button>
+          ) : (
+            <Button variant="primary" onClick={handleEditReservation}>
+              Save Changes
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </div>
