@@ -93,7 +93,9 @@ const HomePage = () => {
   const [doctorServices, setDoctorServices] = useState(isDoctor ? true : false);
   const [showDataModal, setShowDataModal] = useState(false);
   const [addItem, setAddItem] = useState(false);
+  const [additemName, setAddItemName] = useState("");
   const [editItem, setEditItem] = useState(false);
+  const [editName, setEditName] = useState("");
   const [addReservation, setAddReservation] = useState(false);
   const [editReservation, setEditReservation] = useState(false);
   const userdata = useSelector((state) => state.user.data);
@@ -348,7 +350,7 @@ const HomePage = () => {
       {/*
        **************************************************** MODALS ******************************* */}
       <Modal backdrop="static" show={showDataModal}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton onClick={() => setShowDataModal}>
           {addItem && <Modal.Title>Add item</Modal.Title>}
           {editItem && <Modal.Title>Edit item</Modal.Title>}
           {addReservation && <Modal.Title>Add reservation</Modal.Title>}
