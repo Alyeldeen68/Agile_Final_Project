@@ -92,6 +92,10 @@ const HomePage = () => {
   const role = isDoctor ? "Doctor" : "Pharmacist";
   const [doctorServices, setDoctorServices] = useState(isDoctor ? true : false);
   const [showDataModal, setShowDataModal] = useState(false);
+  const [addItem, setAddItem] = useState(false);
+  const [editItem, setEditItem] = useState(false);
+  const [addReservation, setAddReservation] = useState(false);
+  const [editReservation, setEditReservation] = useState(false);
   const userdata = useSelector((state) => state.user.data);
   const userID = useSelector((state) => state.login.userID);
   const userFirstName = useSelector((state) => state.login.userFirstName);
@@ -126,6 +130,8 @@ const HomePage = () => {
     dateAndTime: "2000-12-24",
   };
   const handleAddItem = () => {
+    setShowDataModal(true);
+    setAddItem(true);
     alert("Hello");
     axios
       .post("https://dawi.onrender.com/add-reservation", {
@@ -137,7 +143,6 @@ const HomePage = () => {
       .then((response) => {
         console.log("Hello");
         console.log(response.data);
-        dispatch(userData(response.data));
       })
       .catch((err) => console.log(err));
     // *************************Fetch***************************************
@@ -326,11 +331,14 @@ const HomePage = () => {
           </motion.div>
         </div>
       )}
-
-      {/* Modal*/}
+      {/*
+       **************************************************** MODALS ******************************* */}
       <Modal backdrop="static" show={showDataModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          {addItem && <Modal.Title>Add item</Modal.Title>}
+          {editItem && <Modal.Title>Edit item</Modal.Title>}
+          {addReservation && <Modal.Title>Add reservation</Modal.Title>}
+          {editReservation && <Modal.Title>Edit reservation</Modal.Title>}
         </Modal.Header>
         <Modal.Body>
           <Form>
