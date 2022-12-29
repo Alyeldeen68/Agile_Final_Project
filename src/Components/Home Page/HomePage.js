@@ -203,10 +203,11 @@ const HomePage = () => {
         doctorName: userFirstName,
       })
       .then((response) => {
-        console.log("Hello");
         console.log(response.data);
+        dispatch(userData(response.data));
       })
       .catch((err) => console.log(err));
+    setShowDataModal(false);
   };
   // const handleEditItem = () => {
   //   setShowDataModal(true);
@@ -382,16 +383,27 @@ const HomePage = () => {
           >
             <h2>Hello, {role} </h2>
             <div className="card-container">
-              {userdata.map((item) =>
-                item.map((i) => (
-                  <CardContainer
-                    img={i.img}
-                    title={i.name}
-                    id={i._id}
-                    date={i.expiryDate}
-                  />
-                ))
-              )}
+              {isPharmacist
+                ? userdata.map((item) =>
+                    item.map((i) => (
+                      <CardContainer
+                        img={i.img}
+                        title={i.name}
+                        id={i._id}
+                        date={i.expiryDate}
+                      />
+                    ))
+                  )
+                : userdata.map((item) =>
+                    item.map((i) => (
+                      <CardContainer
+                        img={i.img}
+                        title={i.specialty}
+                        id={i._id}
+                        date={i.dateAndTime}
+                      />
+                    ))
+                  )}
             </div>
           </motion.div>
         </div>
