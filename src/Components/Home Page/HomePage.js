@@ -116,19 +116,34 @@ const HomePage = () => {
     //     dispatch(userData(d.data));
     //   })
     //   .catch((err) => console.log(err));
-    axios
-      .post(
-        "https://dawi.onrender.com/get-medicines",
-        {},
-        {
-          headers: header,
-        }
-      )
-      .then((response) => {
-        console.log(response.data);
-        dispatch(userData(response.data));
-      })
-      .catch((err) => console.log(err));
+
+    isPharmacist
+      ? axios
+          .post(
+            "https://dawi.onrender.com/get-medicines",
+            {},
+            {
+              headers: header,
+            }
+          )
+          .then((response) => {
+            console.log(response.data);
+            dispatch(userData(response.data));
+          })
+          .catch((err) => console.log(err))
+      : axios
+          .post(
+            "https://dawi.onrender.com/get-reservations",
+            {},
+            {
+              headers: header,
+            }
+          )
+          .then((response) => {
+            console.log(response.data);
+            dispatch(userData(response.data));
+          })
+          .catch((err) => console.log(err));
   }, []);
 
   const reservationData = {
