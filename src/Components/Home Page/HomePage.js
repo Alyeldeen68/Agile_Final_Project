@@ -390,9 +390,9 @@ const HomePage = () => {
                     </motion.div>
                   </h3>
                   <motion.div
-                    initial={`${open}`}
-                    animate={`${open}`}
-                    variants={sideBarData}
+                    animate={{
+                      display: open ? "block" : "hidden",
+                    }}
                   >
                     <div className="personal-data">
                       <p>Name : {userFirstName}</p>
