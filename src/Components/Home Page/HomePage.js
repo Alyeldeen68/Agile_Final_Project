@@ -149,17 +149,17 @@ const HomePage = () => {
       .catch((err) => console.log(err));
 
     // ******************************  Add Reservation shaghalaa *****************************
-    axios
-      .post("https://dawi.onrender.com/add-reservation", {
-        specialty: "Aly",
-        dateAndTime: "2000-12-24",
-        doctorID: userID,
-        doctorName: userFirstName,
-      })
-      .then((response) => {
-        console.log("Hello");
-        console.log(response.data);
-      });
+    // axios
+    //   .post("https://dawi.onrender.com/add-reservation", {
+    //     specialty: "Aly",
+    //     dateAndTime: "2000-12-24",
+    //     doctorID: userID,
+    //     doctorName: userFirstName,
+    //   })
+    //   .then((response) => {
+    //     console.log("Hello");
+    //     console.log(response.data);
+    //   });
     //   .catch((err) => console.log(err));
     // *************************Fetch***************************************
     // fetch("/add-reservation", {
@@ -189,7 +189,17 @@ const HomePage = () => {
     //   .then((response) => console.log(response))
     //   .catch((err) => console.log(err));
   };
-
+  const handleEditItem = () => {
+    setEditItem(true);
+    axios
+      .post("https://dawi.onrender.com/edit-medicine", {
+        name: "New name",
+        id: userID,
+        expiryDate: "2000-5-7",
+      })
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  };
   return (
     <>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -296,11 +306,11 @@ const HomePage = () => {
                   )}
 
                   {doctorServices ? (
-                    <button onClick={handleAddItem}>
+                    <button>
                       <Item icon={<EditIcon />} name="Edit reservation" />
                     </button>
                   ) : (
-                    <button>
+                    <button onClick={handleEditItem}>
                       <Item icon={<EditIcon />} name="Edit item" />
                     </button>
                   )}

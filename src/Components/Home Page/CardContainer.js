@@ -11,12 +11,7 @@ const CardContainer = ({ img, title }) => {
           src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
         />
         <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Card.Title style={{ textAlign: "center" }}>{title}</Card.Title>
         </Card.Body>
       </Card>
     </div>
