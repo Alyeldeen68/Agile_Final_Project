@@ -179,27 +179,19 @@ const CardContainer = ({ img, title, id, date }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "space-around",
-            }}
-          >
-            <Button variant="secondary" onClick={() => setShowDataModal(false)}>
-              Close
-            </Button>
+          <Button variant="secondary" onClick={() => setShowDataModal(false)}>
+            Close
+          </Button>
 
-            {isPharmacist ? (
-              <Button variant="primary" onClick={handleEditItem}>
-                Save Changes
-              </Button>
-            ) : (
-              <Button variant="primary" onClick={handleEditReservation}>
-                Save Changes
-              </Button>
-            )}
-          </div>
+          {isPharmacist ? (
+            <Button variant="primary" onClick={handleEditItem}>
+              Save Changes
+            </Button>
+          ) : (
+            <Button variant="primary" onClick={handleEditReservation}>
+              Save Changes
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
 
