@@ -93,6 +93,8 @@ const HomePage = () => {
   const [doctorServices, setDoctorServices] = useState(isDoctor ? true : false);
   const [showDataModal, setShowDataModal] = useState(false);
   const userdata = useSelector((state) => state.user.data);
+  const userID = useSelector((state) => state.login.userID);
+  const userFirstName = useSelector((state) => state.login.userFirstName);
   const dispatch = useDispatch();
   useEffect(() => {
     // fetch("/get-medicines", {
@@ -129,8 +131,8 @@ const HomePage = () => {
       .post("https://dawi.onrender.com/add-reservation", {
         specialty: "Aly",
         dateAndTime: "2000-12-24",
-        doctorID: "",
-        doctorName: "",
+        doctorID: userID,
+        doctorName: userFirstName,
       })
       .then((response) => {
         console.log("Hello");

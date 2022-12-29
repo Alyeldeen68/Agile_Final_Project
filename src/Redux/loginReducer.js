@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   userName: "",
+  userFirstName: "",
+  userID: "",
   password: "",
   isLoggedIn: false,
   isDoctor: false,
@@ -14,6 +16,8 @@ const loginSlice = createSlice({
   reducers: {
     setCredintials: (state, action) => {
       state.userName = action.payload;
+      state.userFirstName = action.payload.firstName;
+      state.userID = action.payload.id;
       state.isLoggedIn = true;
       if (action.payload.role == "Doctor") {
         state.isDoctor = true;
