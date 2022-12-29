@@ -350,7 +350,7 @@ const HomePage = () => {
             <div className="card-container">
               {userdata.map((item) =>
                 item.map((i) => (
-                  <CardContainer img={i.img} title={i.name} id={i.id} />
+                  <CardContainer img={i.img} title={i.name} id={i._id} />
                 ))
               )}
             </div>

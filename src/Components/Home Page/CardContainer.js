@@ -36,7 +36,11 @@ const CardContainer = ({ img, title, id }) => {
         />
         <Card.Body>
           <Card.Title style={{ textAlign: "center" }}>{title}</Card.Title>
-          <Button onClick={handleEdit} variant="primary">
+          <Button
+            style={{ textAlign: "center" }}
+            onClick={handleEdit}
+            variant="primary"
+          >
             Edit
           </Button>
         </Card.Body>
