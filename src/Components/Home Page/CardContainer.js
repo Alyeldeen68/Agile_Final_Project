@@ -23,28 +23,16 @@ const CardContainer = ({ img, title, id }) => {
   const itemId = id;
   const handleEdit = () => {
     setShowDataModal(true);
-
     axios
       .post("https://dawi.onrender.com/edit-medicine", {
         name: "New name",
         id: itemId,
         expiryDate: "2000-5-7",
+        pharmacistID: userID,
       })
-      .then((response) => console.log(response))
+      .then((response) => dispatch(userData(response.data)))
       .catch((err) => console.log(err));
-    axios
-      .post(
-        "https://dawi.onrender.com/get-medicines",
-        {},
-        {
-          headers: header,
-        }
-      )
-      .then((response) => {
-        console.log(response.data);
-        dispatch(userData(response.data));
-      })
-      .catch((err) => console.log(err));
+    setShowDataModal(false);
   };
   return (
     <div>
