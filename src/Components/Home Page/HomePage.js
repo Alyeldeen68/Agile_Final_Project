@@ -148,18 +148,18 @@ const HomePage = () => {
       })
       .catch((err) => console.log(err));
 
-    // ******************************  Add Reservation *****************************
-    // axios
-    //   .post("https://dawi.onrender.com/add-reservation", {
-    //     specialty: "Aly",
-    //     dateAndTime: "2000-12-24",
-    //     doctorID: userID,
-    //     doctorName: userFirstName,
-    //   })
-    //   .then((response) => {
-    //     console.log("Hello");
-    //     console.log(response.data);
-    //   })
+    // ******************************  Add Reservation shaghalaa *****************************
+    axios
+      .post("https://dawi.onrender.com/add-reservation", {
+        specialty: "Aly",
+        dateAndTime: "2000-12-24",
+        doctorID: userID,
+        doctorName: userFirstName,
+      })
+      .then((response) => {
+        console.log("Hello");
+        console.log(response.data);
+      });
     //   .catch((err) => console.log(err));
     // *************************Fetch***************************************
     // fetch("/add-reservation", {
@@ -188,9 +188,6 @@ const HomePage = () => {
     // })
     //   .then((response) => console.log(response))
     //   .catch((err) => console.log(err));
-
-    setTimeout(() => {}, 1000);
-    console.log("Hello koko");
   };
 
   return (
