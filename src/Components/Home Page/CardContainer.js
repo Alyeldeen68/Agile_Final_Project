@@ -43,11 +43,11 @@ const CardContainer = ({ img, title, id, date }) => {
         <Card.Body>
           <div className="card-body">
             <Card.Body>
-              <i> {title} </i>
+              <i> {title} </i> <i> {date} </i>
             </Card.Body>
-            <Card.Body>
+            {/* <Card.Body>
               <i> {date} </i>
-            </Card.Body>
+            </Card.Body> */}
           </div>
           <div className="btn-container">
             <Button
