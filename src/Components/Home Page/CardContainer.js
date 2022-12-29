@@ -43,12 +43,13 @@ const CardContainer = ({ img, title, id, date }) => {
         <Card.Body>
           <div className="card-body">
             <Card.Body>
-              <i> {title} </i> <i> {date} </i>
+              <i> {title} </i>
             </Card.Body>
-            {/* <Card.Body>
+            <Card.Body>
               <i> {date} </i>
-            </Card.Body> */}
+            </Card.Body>
           </div>
+          <hr />
           <div className="btn-container">
             <Button
               style={{ textAlign: "center" }}
