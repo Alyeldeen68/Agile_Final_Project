@@ -19,7 +19,7 @@ const CardContainer = ({ img, title, id, date }) => {
   const [showDataModal, setShowDataModal] = useState(false);
   const dispatch = useDispatch();
   var accessToken = useSelector((state) => state.login.userName.accessToken);
-  const Date = date.slice(0, 9);
+  const Date = date.slice(0, 10);
   const itemId = id;
   const handleEditItem = () => {
     axios
@@ -46,13 +46,41 @@ const CardContainer = ({ img, title, id, date }) => {
       .catch((err) => console.log(err));
     setShowDataModal(false);
   };
+
+  const handleItemDelete = () => {
+    axios
+      .post("https://dawi.onrender.com/delete-medicine", {
+        id: itemId,
+        pharmacistID: userID,
+      })
+      .then((response) => dispatch(userData(response.data)))
+      .catch((err) => console.log(err));
+  };
+
+  const handleReservationDelete = () => {
+    axios
+      .post("https://dawi.onrender.com/delete-reservation", {
+        id: itemId,
+        doctorID: userID,
+      })
+      .then((response) => dispatch(userData(response.data)))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <Card className="main-card" style={{ width: "18rem" }}>
-        <Card.Img
-          variant="top"
-          src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
-        />
+        {isPharmacist ? (
+          <Card.Img
+            variant="top"
+            src="https://static.vecteezy.com/system/resources/previews/004/892/155/original/cute-pharmacist-carrying-drug-logo-vector.jpg"
+          />
+        ) : (
+          <Card.Img
+            variant="top"
+            src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000"
+          />
+        )}
         <Card.Body>
           <div className="card-body">
             <div>
@@ -72,6 +100,15 @@ const CardContainer = ({ img, title, id, date }) => {
           >
             Edit
           </Button>
+          {isPharmacist ? (
+            <Button onClick={handleItemDelete} variant="primary">
+              Delete
+            </Button>
+          ) : (
+            <Button onClick={handleReservationDelete} variant="primary">
+              Delete
+            </Button>
+          )}
         </div>
       </Card>
 
