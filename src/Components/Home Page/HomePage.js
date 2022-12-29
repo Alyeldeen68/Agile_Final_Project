@@ -129,11 +129,11 @@ const HomePage = () => {
       .post(
         "https://dawi.onrender.com/add-reservation",
         {
-          specialty: "Aly",
-          dateAndTime: "2000-12-24",
+          headers: header,
         },
         {
-          headers: header,
+          specialty: "Aly",
+          dateAndTime: "2000-12-24",
         }
       )
       .then((response) => {
