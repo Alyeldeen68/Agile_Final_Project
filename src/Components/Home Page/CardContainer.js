@@ -3,8 +3,9 @@ import "./CardContainer.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-bootstrap/Modal";
+import { userData } from "../../Redux/userReducer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 const CardContainer = ({ img, title, id }) => {
@@ -13,6 +14,7 @@ const CardContainer = ({ img, title, id }) => {
   const [editItem, setEditItem] = useState(false);
   const [editName, setEditName] = useState("");
   const [showDataModal, setShowDataModal] = useState(false);
+  const dispatch = useDispatch();
   var accessToken = useSelector((state) => state.login.userName.accessToken);
   const header = {
     authorization: accessToken,
