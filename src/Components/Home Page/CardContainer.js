@@ -43,10 +43,12 @@ const CardContainer = ({ img, title, id, date }) => {
         <Card.Body>
           <div className="card-body">
             <Card.Body>
-              <i> {title} </i>
-            </Card.Body>
-            <Card.Body>
-              <i> {date} </i>
+              <div>
+                <i> {title} </i>
+              </div>
+              <div>
+                <i> {date} </i>
+              </div>
             </Card.Body>
           </div>
           <hr />
