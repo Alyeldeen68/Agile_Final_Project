@@ -26,6 +26,7 @@ const loginSlice = createSlice({
         state.isPharmacist = true;
         state.isDoctor = false;
       }
+      console.log(state.userFirstName);
     },
   },
 });

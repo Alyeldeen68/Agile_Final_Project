@@ -125,6 +125,7 @@ const HomePage = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
   const reservationData = {
     specialty: "Aly",
     dateAndTime: "2000-12-24",
