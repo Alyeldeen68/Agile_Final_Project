@@ -137,10 +137,10 @@ const HomePage = () => {
     setAddItem(true);
     alert("Hello");
     axios
-      .post("https://dawi.onrender.com/add-medecine-2", {
+      .post("https://dawi.onrender.com/add-medicine-2", {
         id: userID,
         expiryDate: "2000-12-24",
-        name: "Zeby",
+        name: "Manga",
       })
       .then((response) => {
         console.log("Hello");
@@ -350,7 +350,7 @@ const HomePage = () => {
       {/*
        **************************************************** MODALS ******************************* */}
       <Modal backdrop="static" show={showDataModal}>
-        <Modal.Header closeButton onClick={() => setShowDataModal}>
+        <Modal.Header closeButton onClick={() => setShowDataModal(false)}>
           {addItem && <Modal.Title>Add item</Modal.Title>}
           {editItem && <Modal.Title>Edit item</Modal.Title>}
           {addReservation && <Modal.Title>Add reservation</Modal.Title>}
