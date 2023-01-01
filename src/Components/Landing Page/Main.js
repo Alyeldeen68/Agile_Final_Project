@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "../../Redux/signUpReducer";
 import { RouterLink } from "../../upYouGo/Styling.js";
 import GoToTop from "../../upYouGo/GoToTop.js";
+import { Modal } from "react-bootstrap";
 
 const Main = () => {
   const navigate = useNavigate();
