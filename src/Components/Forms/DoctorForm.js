@@ -23,6 +23,7 @@ const DoctorForm = () => {
   const [validated, setValidated] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const koko = 8;
   const dispatch = useDispatch();
   const type = useSelector((state) => state.signUp.isDoctor);
@@ -73,6 +74,7 @@ const DoctorForm = () => {
         // navigate("/");
       })
       .catch((err) => console.log(err));
+    setSuccess(false);
   };
   return (
     <div id="form" className="main-form">
@@ -134,9 +136,15 @@ const DoctorForm = () => {
             />
           </Form.Group>
 
-          <Button onClick={handleSubmit} variant="primary">
-            Submit
-          </Button>
+          {isLoading ? (
+            <Button onClick={handleSubmit} variant="primary" disabled>
+              Loading
+            </Button>
+          ) : (
+            <Button onClick={handleSubmit} variant="primary">
+              Submit
+            </Button>
+          )}
         </Form>
       </div>
 
