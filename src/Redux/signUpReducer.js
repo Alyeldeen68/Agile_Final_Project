@@ -22,7 +22,7 @@ const signUpSlice = createSlice({
       state.isPharmacist = false;
     },
     success: (state, action) => {
-      state.signedUp = action.payload;
+      state.signedUp = true;
     },
   },
 });

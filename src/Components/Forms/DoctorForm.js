@@ -71,7 +71,7 @@ const DoctorForm = () => {
         image: base64,
       })
       .then((response) => {
-        dispatch(success(true));
+        dispatch(success());
         setIsLoading(false);
         navigate("/");
       })
