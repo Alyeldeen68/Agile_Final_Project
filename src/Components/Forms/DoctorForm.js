@@ -77,6 +77,7 @@ const DoctorForm = () => {
       })
       .catch((err) => console.log(err));
     setSuccess(false);
+    setIsLoading(false);
   };
   return (
     <div id="form" className="main-form">
