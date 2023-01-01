@@ -73,7 +73,7 @@ const DoctorForm = () => {
         setSuccess(true);
         setShowModal(true);
         setIsLoading(false);
-        // navigate("/");
+        navigate("/");
       })
       .catch((err) => console.log(err));
     setSuccess(false);
@@ -89,9 +89,9 @@ const DoctorForm = () => {
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
           {success ? (
-            <h4>Successful Registeration !</h4>
-          ) : (
             <h4>UnSuccessful Registeration !</h4>
+          ) : (
+            <h4>Successful Registeration !</h4>
           )}
         </Modal.Body>
         <Modal.Footer>
