@@ -9,7 +9,7 @@ import resala from "../../Imgs/Resala-Charity-Organization-Egypt-6495-og.jpeg";
 import bahya from "../../Imgs/53821554113089.jpg";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signUp } from "../../Redux/signUpReducer";
+import { signUp, success } from "../../Redux/signUpReducer";
 import { RouterLink } from "../../upYouGo/Styling.js";
 import GoToTop from "../../upYouGo/GoToTop.js";
 import { Modal } from "react-bootstrap";
@@ -17,8 +17,8 @@ import { Modal } from "react-bootstrap";
 const Main = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const success = useSelector((state) => state.signUp.signedUp);
-  const [showModal, setShowModal] = useState(success ? true : false);
+  const successful = useSelector((state) => state.signUp.signedUp);
+  const [showModal, setShowModal] = useState(successful ? true : false);
   return (
     <div>
       <Modal
@@ -29,14 +29,21 @@ const Main = () => {
       >
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          {success ? (
+          {successful ? (
             <h4>Successful Registeration !</h4>
           ) : (
             <h4>Unsuccessful Registeration !</h4>
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => setShowModal(false)}>Close</Button>
+          <Button
+            onClick={() => {
+              dispatch(success(false));
+              setShowModal(false);
+            }}
+          >
+            Close
+          </Button>
         </Modal.Footer>
       </Modal>
 
