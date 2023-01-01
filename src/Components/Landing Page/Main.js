@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Main.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -8,7 +8,7 @@ import masrAlKhir from "../../Imgs/Misr-Elkheir-Foundation-Egypt-7932-1489657887
 import resala from "../../Imgs/Resala-Charity-Organization-Egypt-6495-og.jpeg";
 import bahya from "../../Imgs/53821554113089.jpg";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "../../Redux/signUpReducer";
 import { RouterLink } from "../../upYouGo/Styling.js";
 import GoToTop from "../../upYouGo/GoToTop.js";
@@ -16,8 +16,29 @@ import GoToTop from "../../upYouGo/GoToTop.js";
 const Main = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const success = useSelector((state) => state.signUp.signedUp);
+  const [showModal, setShowModal] = useState(success ? true : false);
   return (
     <div>
+      <Modal
+        show={showModal}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>
+          {success ? (
+            <h4>Successful Registeration !</h4>
+          ) : (
+            <h4>Unsuccessful Registeration !</h4>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setShowModal(false)}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+
       <div className="main-container">
         <div className="card-container">
           <Card style={{ width: "18rem", borderRadius: "1rem" }}>

@@ -4,6 +4,7 @@ import React from "react";
 const initialState = {
   isDoctor: false,
   isPharmacist: false,
+  signedUp: false,
 };
 
 const signUpSlice = createSlice({
@@ -20,8 +21,11 @@ const signUpSlice = createSlice({
       state.isDoctor = false;
       state.isPharmacist = false;
     },
+    success: (state, action) => {
+      state.signedUp = action.payload;
+    },
   },
 });
 
-export const { signUp, back } = signUpSlice.actions;
+export const { signUp, back, success } = signUpSlice.actions;
 export default signUpSlice.reducer;

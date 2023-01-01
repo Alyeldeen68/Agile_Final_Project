@@ -28,6 +28,7 @@ const DoctorForm = () => {
   const dispatch = useDispatch();
   const type = useSelector((state) => state.signUp.isDoctor);
   const navigate = useNavigate();
+
   const role = type == true ? "Doctor" : "Pharmacist";
   // const handlePhoto = async (e) => {
   //   const file = e.target.files[0];
@@ -70,8 +71,7 @@ const DoctorForm = () => {
         image: base64,
       })
       .then((response) => {
-        setSuccess(true);
-        setShowModal(true);
+        dispatch(success(true));
         setIsLoading(false);
         navigate("/");
       })
