@@ -67,11 +67,12 @@ const DoctorForm = () => {
         role: role,
         image: base64,
       })
-      .then((response) => console.log(response))
+      .then((response) => {
+        setSuccess(true);
+        setShowModal(true);
+        // navigate("/");
+      })
       .catch((err) => console.log(err));
-
-    setShowModal(true);
-    navigate("/");
   };
   return (
     <div id="form" className="main-form">
