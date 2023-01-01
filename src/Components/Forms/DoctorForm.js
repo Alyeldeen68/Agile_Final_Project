@@ -10,6 +10,7 @@ import axios from "axios";
 import { back } from "../../Redux/signUpReducer";
 import Modal from "react-bootstrap/Modal";
 import { RouterLink } from "../../upYouGo/Styling.js";
+import { success } from "../../Redux/signUpReducer";
 import GoToTop from "../../upYouGo/GoToTop.js";
 const DoctorForm = () => {
   const [firstName, setFirstName] = useState("");
