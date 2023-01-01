@@ -3,7 +3,7 @@ import "./DoctorForm.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import logo from "../../Imgs/charity.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -21,11 +21,12 @@ const DoctorForm = () => {
   const [photo, setPhoto] = useState("");
   const [base64, setBase64] = useState("");
   const [validated, setValidated] = useState(false);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [success, setSuccess] = useState(false);
   const koko = 8;
   const dispatch = useDispatch();
   const type = useSelector((state) => state.signUp.isDoctor);
+  const navigate = useNavigate();
   const role = type == true ? "Doctor" : "Pharmacist";
   // const handlePhoto = async (e) => {
   //   const file = e.target.files[0];
@@ -68,6 +69,9 @@ const DoctorForm = () => {
       })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
+
+    setShowModal(true);
+    navigate("/");
   };
   return (
     <div id="form" className="main-form">
@@ -134,8 +138,9 @@ const DoctorForm = () => {
           </Button>
         </Form>
       </div>
+
       <Modal
-        show={false}
+        show={showModal}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
