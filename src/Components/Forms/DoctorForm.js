@@ -51,6 +51,7 @@ const DoctorForm = () => {
   //   });
   // };
   const handleSubmit = async (event) => {
+    setIsLoading(true);
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -71,6 +72,7 @@ const DoctorForm = () => {
       .then((response) => {
         setSuccess(true);
         setShowModal(true);
+        setIsLoading(false);
         // navigate("/");
       })
       .catch((err) => console.log(err));
@@ -78,6 +80,24 @@ const DoctorForm = () => {
   };
   return (
     <div id="form" className="main-form">
+      <Modal
+        show={showModal}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>
+          {success ? (
+            <h4>Successful Registeration !</h4>
+          ) : (
+            <h4>UnSuccessful Registeration !</h4>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setShowModal(false)}>Close</Button>
+        </Modal.Footer>
+      </Modal>
       <RouterLink to="/" onClick={() => dispatch(back())}>
         <img src={logo} />
       </RouterLink>
@@ -138,7 +158,7 @@ const DoctorForm = () => {
 
           {isLoading ? (
             <Button onClick={handleSubmit} variant="primary" disabled>
-              Loading
+              Loading...
             </Button>
           ) : (
             <Button onClick={handleSubmit} variant="primary">
@@ -148,24 +168,6 @@ const DoctorForm = () => {
         </Form>
       </div>
 
-      <Modal
-        show={showModal}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
-          {success ? (
-            <h4>Successful Registeration !</h4>
-          ) : (
-            <h4>UnSuccessful Registeration !</h4>
-          )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={() => setShowModal(false)}>Close</Button>
-        </Modal.Footer>
-      </Modal>
       <GoToTop />
     </div>
   );
