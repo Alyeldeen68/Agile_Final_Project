@@ -22,7 +22,6 @@ const DoctorForm = () => {
   const [base64, setBase64] = useState("");
   const [validated, setValidated] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const koko = 8;
   const dispatch = useDispatch();
@@ -78,29 +77,10 @@ const DoctorForm = () => {
         navigate("/");
       })
       .catch((err) => console.log(err));
-    setSuccess(false);
     setIsLoading(false);
   };
   return (
     <div id="form" className="main-form">
-      <Modal
-        show={showModal}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
-          {success ? (
-            <h4>UnSuccessful Registeration !</h4>
-          ) : (
-            <h4>Successful Registeration !</h4>
-          )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={() => setShowModal(false)}>Close</Button>
-        </Modal.Footer>
-      </Modal>
       <RouterLink to="/" onClick={() => dispatch(back())}>
         <img src={logo} />
       </RouterLink>
